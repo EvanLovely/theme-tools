@@ -20,7 +20,7 @@ const defaultConfig = require('./config.default');
 // const debug = require('gulp-debug');
 
 module.exports = (userConfig) => {
-  const config = core.utils.merge(defaultConfig, userConfig);
+  const config = core.utils.merge({}, defaultConfig, userConfig);
 
   function cssCompile(done, errorShouldExit) {
     gulp.src(config.src)

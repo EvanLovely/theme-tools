@@ -148,6 +148,10 @@ module.exports = class extends Generator {
       packageJson.dependencies['theme-core-plugin--browser-sync'] = `^${this.props.repoVer}`;
     }
 
+    if (this.props.usePatternLab) {
+      packageJson.dependencies['theme-core-plugin--pattern-lab--php'] = `^${this.props.repoVer}`;
+    }
+
     this.fs.writeJSON(this.destinationPath('package.json'), packageJson);
   }
 
