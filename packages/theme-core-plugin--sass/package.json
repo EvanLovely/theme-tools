@@ -4,7 +4,6 @@
   "description": "Sass compiling using libsass and Gulp.",
   "main": "sass.js",
   "scripts": {
-    "test": "mocha"
   },
   "keywords": [
     "theme-core",

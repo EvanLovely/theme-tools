@@ -5,7 +5,8 @@
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
     "lint": "eslint --ignore-pattern node_modules ./",
-    "test": "npm run lint",
+    "mocha": "mocha packages/*/test",
+    "test": "npm run lint --silent && npm run mocha --silent",
     "postinstall": "npm run bootstrap"
   },
   "repository": {
