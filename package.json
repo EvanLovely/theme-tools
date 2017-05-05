@@ -9,6 +9,7 @@
     "mocha": "mocha packages/*/test",
     "start": "nodemon --ignore node_modules -w packages/ --exec 'npm test'",
     "test": "npm run lint && npm run mocha",
+    "precommit": "npm test",
     "postinstall": "npm run bootstrap"
   },
   "repository": {
@@ -38,6 +39,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
+    "husky": "^0.13.3",
     "lerna": "^2.0.0-rc.4",
     "mocha": "^3.3.0",
     "nodemon": "^1.11.0"
