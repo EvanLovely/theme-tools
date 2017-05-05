@@ -1,5 +1,5 @@
 'use strict';
-const path = require('path');
+
 const core = require('theme-core');
 const browserSync = require('browser-sync').create('server');
 const defaultConfig = require('./config.default');
@@ -74,5 +74,5 @@ module.exports = (userConfig) => {
   return {
     serve,
     reload,
-  }
+  };
 };

@@ -11,7 +11,7 @@ module.exports = {
     // in addition to linting `src`, this is added.
     extraSrc: [],
   },
-  // enables additional debugging information in the output file as CSS comments - only use when necessary
+  // enables additional debugging information in the output file as CSS comments
   sourceComments: false,
   sourceMapEmbed: false,
   // tell the compiler whether you want 'expanded' or 'compressed' output code

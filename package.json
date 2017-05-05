@@ -5,8 +5,10 @@
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
     "lint": "eslint --ignore-pattern node_modules ./",
+    "fix": "eslint --ignore-pattern node_modules --fix ./",
     "mocha": "mocha packages/*/test",
-    "test": "npm run lint --silent && npm run mocha --silent",
+    "start": "nodemon --ignore node_modules -w packages/ --exec 'npm test'",
+    "test": "npm run lint && npm run mocha",
     "postinstall": "npm run bootstrap"
   },
   "repository": {
@@ -37,6 +39,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "lerna": "^2.0.0-rc.4",
-    "mocha": "^3.3.0"
+    "mocha": "^3.3.0",
+    "nodemon": "^1.11.0"
   }
 }

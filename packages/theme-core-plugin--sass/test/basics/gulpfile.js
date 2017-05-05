@@ -1,5 +1,7 @@
 'use strict';
+
 const gulp = require('gulp');
+
 const config = {
   src: [
     'scss/**/*.scss',
@@ -23,10 +25,10 @@ gulp.task('compile', gulp.series([
 ]));
 
 gulp.task('default', gulp.series([
-    cssTasks.clean,
-    gulp.parallel([
-      cssTasks.compile,
-      cssTasks.docs,
-    ]),
-    cssTasks.watch,
+  cssTasks.clean,
+  gulp.parallel([
+    cssTasks.compile,
+    cssTasks.docs,
+  ]),
+  cssTasks.watch,
 ]));

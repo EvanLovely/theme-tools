@@ -8,6 +8,7 @@ module.exports = {
   },
   rules: {
     strict: [0],
+    'comma-dangle': [0],
     'prefer-spread': [0],
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],

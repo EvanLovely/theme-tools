@@ -1,4 +1,5 @@
 'use strict';
+
 const gulp = require('gulp');
 const sassGlob = require('gulp-sass-glob');
 const sourcemaps = require('gulp-sourcemaps');
@@ -43,11 +44,11 @@ module.exports = (userConfig) => {
           includePaths: config.includePaths,
         }).on('error', sass.logError))
         .pipe(postcss(
-            [
-              autoprefixer({
-                browsers: config.autoPrefixerBrowsers,
-              }),
-            ]
+          [
+            autoprefixer({
+              browsers: config.autoPrefixerBrowsers,
+            }),
+          ]
         ))
         .pipe(sourcemaps.write((config.sourceMapEmbed) ? null : './'))
         .pipe(gulpif(config.flattenDestOutput, flatten()))
@@ -68,7 +69,7 @@ module.exports = (userConfig) => {
     del([
       join(config.dest, '*.{css,css.map}'),
       config.sassdoc.dest,
-    ], {force: true}).then(() => done());
+    ], { force: true }).then(() => done());
   }
 
   function validateCss(errorShouldExit) {
@@ -77,10 +78,9 @@ module.exports = (userConfig) => {
         .pipe(stylelint({
           failAfterError: errorShouldExit,
           reporters: [
-            {formatter: 'string', console: true},
+            { formatter: 'string', console: true },
           ],
         }));
-
   }
 
   function validateCssWithNoExit() {
@@ -114,7 +114,7 @@ module.exports = (userConfig) => {
       watchTasks.push(validateCssWithNoExit);
     }
     if (config.sassdoc.enabled) {
-      watchTasks.push(docsCss);
+      watchTasks.push(docs);
     }
     const src = config.extraWatches
         ? [].concat(config.src, config.extraWatches)
