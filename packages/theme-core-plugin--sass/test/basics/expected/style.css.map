@@ -1,0 +1,1 @@
+{"version":3,"sources":["_base.scss","style.scss"],"names":[],"mappings":"AAEA;EACE,YAAW;CACZ;;ACFD;EACE,cDHY;CCIb","file":"style.css","sourcesContent":["$padding: 10px;\n\nbody {\n  z-index: 42;\n}\n","@import \"_base.scss\";\n\n.site {\n  padding: $padding;\n}\n"]}

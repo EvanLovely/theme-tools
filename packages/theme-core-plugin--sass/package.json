@@ -1,0 +1,34 @@
+{
+  "name": "theme-core-plugin--sass",
+  "version": "0.0.1",
+  "description": "Sass compiling using libsass and Gulp.",
+  "main": "sass.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "theme-core",
+    "theme-core-plugin",
+    "theme-tools"
+  ],
+  "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^6.7.7",
+    "del": "^2.2.2",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-flatten": "^0.3.1",
+    "gulp-if": "^2.0.2",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.4.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sass-glob": "tomgrooffer/gulp-sass-glob#99d06af",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-stylelint": "^3.9.0",
+    "sassdoc": "^2.2.2",
+    "stylelint-scss": "^1.4.4",
+    "theme-core": "^0.0.1"
+  }
+}
