@@ -18,12 +18,7 @@
   ],
   "devDependencies": {
     "yeoman-test": "^1.6.0",
-    "yeoman-assert": "^3.0.0",
-    "nsp": "^2.6.3",
-    "eslint": "^3.18.0",
-    "eslint-config-xo-space": "^0.16.0",
-    "jest": "^19.0.2",
-    "jest-cli": "^19.0.1"
+    "yeoman-assert": "^3.0.0"
   },
   "dependencies": {
     "yeoman-generator": "^1.0.0",
@@ -34,16 +29,6 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "prepublish": "nsp check",
-    "pretest": "eslint . --fix",
-    "test": "jest"
-  },
-  "eslintConfig": {
-    "extends": "xo-space",
-    "env": {
-      "jest": true,
-      "node": true
-    }
   },
   "repository": "git@github.com:drupal-pattern-lab/theme-tools.git",
   "license": "MIT"
