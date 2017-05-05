@@ -1,6 +1,6 @@
 {
   "name": "theme-core-plugin--browser-sync",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Browser Sync plugin for Theme Core",
   "main": "browser-sync.js",
   "scripts": {
@@ -17,6 +17,6 @@
   "license": "MIT",
   "dependencies": {
     "browser-sync": "^2.18.8",
-    "theme-core": "^0.0.1"
+    "theme-core": "^0.1.0"
   }
 }

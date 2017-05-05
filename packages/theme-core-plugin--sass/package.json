@@ -1,10 +1,9 @@
 {
   "name": "theme-core-plugin--sass",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Sass compiling using libsass and Gulp.",
   "main": "sass.js",
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [
     "theme-core",
     "theme-core-plugin",
@@ -28,6 +27,6 @@
     "gulp-stylelint": "^3.9.0",
     "sassdoc": "^2.2.2",
     "stylelint-scss": "^1.4.4",
-    "theme-core": "^0.0.1"
+    "theme-core": "^0.1.0"
   }
 }
