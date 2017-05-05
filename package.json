@@ -3,7 +3,10 @@
   "description": "A monorepo for theme-core, yo theme, and more to help theming with good tools.",
   "private": true,
   "scripts": {
-    "bootstrap": "lerna bootstrap --hoist"
+    "bootstrap": "lerna bootstrap --hoist",
+    "lint": "eslint --ignore-pattern node_modules ./",
+    "test": "npm run lint",
+    "postinstall": "npm run bootstrap"
   },
   "repository": {
     "type": "git",
@@ -25,6 +28,14 @@
   },
   "homepage": "https://github.com/drupal-pattern-lab/theme-tools#readme",
   "devDependencies": {
-    "lerna": "^2.0.0-rc.4"
+    "chai": "^3.5.0",
+    "chai-fs": "^1.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "lerna": "^2.0.0-rc.4",
+    "mocha": "^3.3.0"
   }
 }
