@@ -1,0 +1,21 @@
+{
+  "name": "theme-core-plugin--pattern-lab--php",
+  "version": "0.1.0",
+  "description": "Pattern Lab PHP plugin for Theme Core",
+  "main": "pattern-lab.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pattern-lab",
+    "theme-core-plugin",
+    "theme-tools"
+  ],
+  "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "gulpjs/gulp#4.0",
+    "js-yaml": "^3.8.3",
+    "theme-core": "^0.1.0"
+  }
+}

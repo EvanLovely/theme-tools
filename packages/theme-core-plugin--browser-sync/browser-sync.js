@@ -5,7 +5,7 @@ const browserSync = require('browser-sync').create('server');
 const defaultConfig = require('./config.default');
 
 module.exports = (userConfig) => {
-  const config = core.utils.merge(defaultConfig, userConfig);
+  const config = core.utils.merge({}, defaultConfig, userConfig);
 
   const options = {
     browser: config.browser,
