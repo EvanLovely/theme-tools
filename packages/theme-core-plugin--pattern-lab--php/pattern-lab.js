@@ -11,9 +11,9 @@ module.exports = (userConfig) => {
   const config = core.utils.merge({}, defaultConfig, userConfig);
 
   const plConfig = yaml.safeLoad(
-    fs.readFileSync(config.patternLab.configFile, 'utf8')
+    fs.readFileSync(config.configFile, 'utf8')
   );
-  const plRoot = path.join(config.patternLab.configFile, '../..');
+  const plRoot = path.join(config.configFile, '../..');
   const plSource = path.join(plRoot, plConfig.sourceDir);
   // const plPublic = path.join(plRoot, plConfig.publicDir);
   const consolePath = path.join(plRoot, 'core/console');
@@ -31,10 +31,10 @@ module.exports = (userConfig) => {
   compile.description = 'Compile Pattern Lab';
 
   function watch() {
-    const watchedExtensions = config.patternLab.watchedExtensions.join(',');
+    const watchedExtensions = config.watchedExtensions.join(',');
     const plGlob = [path.normalize(`${plSource}/**/*.{${watchedExtensions}}`)];
-    const src = config.patternLab.extraWatches
-      ? [].concat(plGlob, config.patternLab.extraWatches)
+    const src = config.extraWatches
+      ? [].concat(plGlob, config.extraWatches)
       : plGlob;
     gulp.watch(src, done => plBuild(done, false));
   }
