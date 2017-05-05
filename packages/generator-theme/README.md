@@ -1,4 +1,5 @@
-# generator-theme [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-theme [![NPM version][npm-image]][npm-url]
+
 > Scaffold out a theme
 
 ## Installation
@@ -30,7 +31,3 @@ MIT © [EvanLovely](http://evanlovely.com)
 
 [npm-image]: https://badge.fury.io/js/generator-theme.svg
 [npm-url]: https://npmjs.org/package/generator-theme
-[travis-image]: https://travis-ci.org/drupal-pattern-lab/generator-theme.svg?branch=master
-[travis-url]: https://travis-ci.org/drupal-pattern-lab/generator-theme
-[daviddm-image]: https://david-dm.org/drupal-pattern-lab/generator-theme.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/drupal-pattern-lab/generator-theme
