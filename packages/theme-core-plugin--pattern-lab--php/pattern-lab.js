@@ -19,7 +19,7 @@ module.exports = (userConfig) => {
   const consolePath = path.join(plRoot, 'core/console');
 
   function plBuild(done, errorShouldExit) {
-    core.util.sh(`php ${consolePath} --generate`, errorShouldExit, (err) => {
+    core.utils.sh(`php ${consolePath} --generate`, errorShouldExit, (err) => {
       core.events.emit('reload');
       done(err);
     });
