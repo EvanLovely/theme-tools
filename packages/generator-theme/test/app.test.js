@@ -11,6 +11,7 @@ describe('generator-theme:app', () => {
     before(() => helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         themeName: 'mytheme',
+        usePatternLab: false,
         useGulp: false,
         themeType: false
       }));
@@ -30,6 +31,7 @@ describe('generator-theme:app', () => {
     before(() => helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         themeName: 'myothertheme',
+        usePatternLab: false,
         useGulp: false,
         themeType: 'drupal8'
       }));
@@ -50,6 +52,7 @@ describe('generator-theme:app', () => {
     before(() => helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         themeName: 'mytheme',
+        usePatternLab: false,
         useGulp: true,
         themeType: false
       }));
@@ -71,6 +74,7 @@ describe('generator-theme:app', () => {
     before(() => helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         themeName: 'mytheme',
+        usePatternLab: false,
         useGulp: true,
         themeType: 'drupal8'
       }));

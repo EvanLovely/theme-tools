@@ -19,7 +19,11 @@ module.exports = class extends Generator {
       {
         name: 'themeName',
         message: 'What theme name would you like?',
-        filter: answer => answer.toLowerCase()
+        filter: answer => answer.toLowerCase(),
+        validate: (answer) => {
+          if (answer.length === 0) return false;
+          return true;
+        }
       },
       {
         name: 'themeType',
@@ -64,6 +68,11 @@ module.exports = class extends Generator {
         message: 'Would you like to use Browser Sync?',
         type: 'confirm',
         when: answers => answers.useGulp
+      },
+      {
+        name: 'usePatternLab',
+        message: 'Would you like to use Pattern Lab?',
+        type: 'confirm'
       }
     ];
 
@@ -142,7 +151,14 @@ module.exports = class extends Generator {
     this.fs.writeJSON(this.destinationPath('package.json'), packageJson);
   }
 
-  // install() {
+  install() {
+    if (this.props.usePatternLab) {
+      this.spawnCommand('composer', [
+        'create-project',
+        'drupal-pattern-lab/edition-twig-standard',
+        'pattern-lab'
+      ]);
+    }
   //   this.npmInstall();
-  // }
+  }
 };
