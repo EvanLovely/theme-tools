@@ -17,6 +17,11 @@ gulp.task('validate:css', cssTasks.validate);
 gulp.task('clean:css', cssTasks.clean);
 gulp.task('docs:css', cssTasks.docs);
 
+gulp.task('compile', gulp.series([
+  cssTasks.clean,
+  cssTasks.compile,
+]));
+
 gulp.task('default', gulp.series([
     cssTasks.clean,
     gulp.parallel([
