@@ -1,23 +1,22 @@
 {
-  "name": "theme-core",
+  "name": "theme-core-plugin--browser-sync",
   "version": "0.0.1",
-  "description": "Core for theme tooling suite.",
-  "main": "lib/index.js",
+  "description": "Browser Sync plugin for Theme Core",
+  "main": "browser-sync.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "theme-core",
     "theme-tools",
-    "drupal-pattern-lab",
-    "pattern-lab"
+    "theme-core-plugin"
   ],
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "maintainers": [],
   "contributors": [],
   "license": "MIT",
   "dependencies": {
-    "lodash.merge": "^4.6.0",
-    "node-notifier": "^5.1.2"
+    "browser-sync": "^2.18.8",
+    "theme-core": "^0.0.1"
   }
 }
