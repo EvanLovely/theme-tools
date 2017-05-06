@@ -134,7 +134,7 @@ module.exports = class extends Generator {
     if (this.props.useGulp) {
       packageJson.dependencies.gulp = 'gulpjs/gulp#4.0';
       this.fs.copyTpl(
-        this.templatePath('gulpfile.js'),
+        this.templatePath('gulpfile.js.ejs'),
         this.destinationPath('gulpfile.js'),
         this.props
       );
@@ -157,6 +157,7 @@ module.exports = class extends Generator {
 
   install() {
     if (this.props.usePatternLab) {
+      console.log('Installing Pattern Lab; please be patient...');
       this.spawnCommand('composer', [
         'create-project',
         'drupal-pattern-lab/edition-twig-standard',
