@@ -3,6 +3,8 @@
 const exec = require('child_process').exec;
 const merge = require('lodash.merge');
 const notifier = require('node-notifier');
+const yaml = require('js-yaml');
+const fs = require('fs');
 
 /**
  * Run shell command
@@ -82,10 +84,79 @@ function error(message) {
   return err;
 }
 
+/**
+ * Object to Yaml
+ * @param {object} object
+ * @returns {string} - Yaml
+ */
+function toYaml(object) {
+  return yaml.safeDump(object);
+}
+
+/**
+ * Yaml to Object
+ * @param {string} string - Yaml
+ * @returns {object}
+ */
+function fromYaml(string) {
+  return yaml.safeLoad(string);
+}
+
+/**
+ * Read Yaml File into Object
+ * @param {string} file - File path
+ * @param {func} cb - Callback with data
+ * @see readYamlFileSync
+ */
+function readYamlFile(file, cb) {
+  fs.readFile(file, 'utf8', (err, data) => {
+    if (err) throw err;
+    cb(yaml.safeLoad(data));
+  });
+}
+
+/**
+ * Read Yaml File into Object, synchronously
+ * @param {string} file - File path
+ * @see readYamlFile
+ * @returns {object}
+ */
+function readYamlFileSync(file) {
+  return yaml.safeLoad(fs.readFileSync(file, 'utf8'));
+}
+
+/**
+ * Write Yaml string to File
+ * @param {string} file - File path
+ * @param {object} data - Object to turn into Yaml
+ * @param {func} cb - Optional callback when done
+ * @see writeYamlFileSync
+ */
+function writeYamlFile(file, data, cb) {
+  fs.writeFile(file, yaml.safeDump(data), () => {
+    if (cb) cb();
+  });
+}
+
+/**
+ * Write Yaml string to File, synchronously
+ * @param {string} file - File path
+ * @param {object} data - Object to turn into Yaml
+ */
+function writeYamlFileSync(file, data) {
+  fs.writeFileSync(file, yaml.safeDump(data));
+}
+
 module.exports = {
   sh,
   flattenArray,
   uniqueArray,
   error,
   merge,
+  fromYaml,
+  toYaml,
+  readYamlFile,
+  readYamlFileSync,
+  writeYamlFile,
+  writeYamlFileSync,
 };

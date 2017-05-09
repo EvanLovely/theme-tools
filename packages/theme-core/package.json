@@ -17,6 +17,7 @@
   "contributors": [],
   "license": "MIT",
   "dependencies": {
+    "js-yaml": "^3.8.3",
     "lodash.merge": "^4.6.0",
     "node-notifier": "^5.1.2"
   }
