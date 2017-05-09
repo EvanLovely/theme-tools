@@ -4,7 +4,7 @@ module.exports = {
   // enable when full CMS is set up
   // domain: 'mysite.dev',
   baseDir: './',
-  startPath: './',
+  startPath: '',
   openBrowserAtStart: false,
   // requires above to be true; allows non-default browser to open
   browser: [
