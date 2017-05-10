@@ -17,17 +17,9 @@ Then generate your new project:
 yo theme
 ```
 
-## Getting To Know Yeoman
+## Contributing
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
-
-## License
-
-MIT © [EvanLovely](http://evanlovely.com)
-
+To be able to test un-committed and un-published changes from this repo, run `npm link` in this folder and then you'll be able to `yo theme` anywhere you'd like to test!
 
 [npm-image]: https://badge.fury.io/js/generator-theme.svg
 [npm-url]: https://npmjs.org/package/generator-theme
