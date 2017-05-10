@@ -1,7 +1,7 @@
 {
   "name": "common",
   "description": "common theme",
-  "version": "0.1.0",
+  "version": "0.2.3",
   "private": true,
   "scripts": {
     "start": "gulp",
@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "gulp": "gulpjs/gulp#4.0",
-    "theme-core-plugin--sass": "^0.2.0",
-    "theme-core-plugin--browser-sync": "^0.2.0",
-    "theme-core-plugin--pattern-lab--php": "^0.2.0"
+    "theme-core-plugin--browser-sync": "^0.2.3",
+    "theme-core-plugin--pattern-lab--php": "^0.2.3",
+    "theme-core-plugin--sass": "^0.2.3"
   },
   "devDependencies": {}
 }

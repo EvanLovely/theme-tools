@@ -1,6 +1,6 @@
 {
   "name": "theme-core-plugin--pattern-lab--php",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Pattern Lab PHP plugin for Theme Core",
   "main": "pattern-lab.js",
   "scripts": {
@@ -16,6 +16,6 @@
   "dependencies": {
     "gulp": "gulpjs/gulp#4.0",
     "js-yaml": "^3.8.3",
-    "theme-core": "^0.1.0"
+    "theme-core": "^0.2.3"
   }
 }
