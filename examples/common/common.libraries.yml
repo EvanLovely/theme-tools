@@ -1,0 +1,5 @@
+core:
+  css:
+    theme:
+      dest/style.css:
+        preprocess: true
