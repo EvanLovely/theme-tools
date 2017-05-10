@@ -21,6 +21,7 @@ const defaultConfig = require('./config.default');
 
 module.exports = (userConfig) => {
   const config = core.utils.merge({}, defaultConfig, userConfig);
+  const tasks = {};
 
   function cssCompile(done, errorShouldExit) {
     gulp.src(config.src)
@@ -65,12 +66,18 @@ module.exports = (userConfig) => {
 
   compile.description = 'Compile Scss to CSS using Libsass with Autoprefixer and SourceMaps';
 
+  tasks.compile = compile;
+
   function clean(done) {
     del([
       join(config.dest, '*.{css,css.map}'),
       config.sassdoc.dest,
     ], { force: true }).then(() => done());
   }
+
+  clean.description = 'Clean compiled CSS';
+
+  tasks.clean = clean;
 
   function validateCss(errorShouldExit) {
     return gulp.src(config.src)
@@ -93,6 +100,8 @@ module.exports = (userConfig) => {
 
   validate.description = 'Lint Scss files';
 
+  if (config.lint.enabled) tasks.validate = validate;
+
   function docs(done) {
     gulp.src(config.src)
         .pipe(sassdoc({
@@ -108,9 +117,11 @@ module.exports = (userConfig) => {
 
   docs.description = 'Build CSS docs using SassDoc';
 
+  if (config.sassdoc.enabled) tasks.docs = docs;
+
   function watch() {
     const watchTasks = [cssCompile];
-    if (config.lint.onWatch) {
+    if (config.lint.enabled && config.lint.onWatch) {
       watchTasks.push(validateCssWithNoExit);
     }
     if (config.sassdoc.enabled) {
@@ -124,11 +135,7 @@ module.exports = (userConfig) => {
 
   watch.description = 'Watch Scss';
 
-  return {
-    clean,
-    compile,
-    watch,
-    validate,
-    docs,
-  };
+  tasks.watch = watch;
+
+  return tasks;
 };
