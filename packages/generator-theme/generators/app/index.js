@@ -93,6 +93,7 @@ module.exports = class extends Generator {
       name: this.props.themeName,
       description: `${this.props.themeName} theme`,
       version: '0.1.0',
+      private: true, // prevents `npm publish`
       scripts: {},
       dependencies: {},
       devDependencies: {}
