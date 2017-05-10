@@ -3,7 +3,9 @@
   "version": "0.2.0",
   "description": "Sass compiling using libsass and Gulp.",
   "main": "sass.js",
-  "scripts": {},
+  "scripts": {
+    "test": "mocha tests/*.test.js"
+  },
   "keywords": [
     "theme-core",
     "theme-core-plugin",
