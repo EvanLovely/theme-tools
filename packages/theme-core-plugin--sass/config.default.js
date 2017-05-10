@@ -5,8 +5,9 @@ module.exports = {
   dest: 'dest/',
   extraWatches: [],
   flattenDestOutput: true,
+  // Stylelint - requires config file setup ~ http://stylelint.io
   lint: {
-    enabled: true,
+    enabled: false,
     onWatch: true,
     // in addition to linting `src`, this is added.
     extraSrc: [],

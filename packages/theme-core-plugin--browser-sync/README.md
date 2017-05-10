@@ -2,7 +2,7 @@
 
 # Requirements
 
-- Gulp 4 installed with `github:gulpjs/gulp#4.0`
+- Gulp 4 installed with `npm install --save gulpjs/gulp#4.0`
 
 ## Install
 
