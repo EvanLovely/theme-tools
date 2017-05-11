@@ -25,6 +25,7 @@ cp node_modules/theme-core-plugin--browser-sync/config.simple.js config.browser-
 Add this to your `gulpfile.js`:
 
 ```js
+const gulp = require('gulp');
 const config = {};
 config.browserSync = require('./config.browser-sync.js');
 const browserSyncTasks = require('theme-core-plugin--browser-sync')(config.browserSync);

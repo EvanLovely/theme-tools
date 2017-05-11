@@ -25,6 +25,7 @@ cp node_modules/theme-core-plugin--pattern-lab--php/config.default.js config.pat
 Add this to your `gulpfile.js`:
 
 ```js
+const gulp = require('gulp');
 const config = {};
 config.pl = require('./config.pattern-lab.js');
 const plTasks = require('theme-core-plugin--pattern-lab--php')(config.pl);
