@@ -31,7 +31,7 @@ The config that is passed in is merged with [`config.default.js`](config.default
 cp node_modules/theme-core-plugin--sass/config.simple.js config.sass.js
 ```
 
-See details on configuration below.
+See [details on configuration](#configuration) below.
 
 ## Basic Setup
 
@@ -50,7 +50,9 @@ gulp.task('clean:sass', sassTasks.clean);
 gulp.task('docs:sass', sassTasks.docs);
 ```
 
-See details on tasks below.
+- [Task Details](#tasks)
+- [Setting up SassDoc](#setting-up-sassdoc)
+- [Setting up Stylelint](#setting-up-stylelint)
 
 # Details
 
