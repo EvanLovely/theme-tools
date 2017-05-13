@@ -13,6 +13,7 @@
   ],
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "license": "MIT",
+  "repository": "https://github.com/drupal-pattern-lab/theme-tools/tree/master/packages/theme-core-plugin--sass",
   "dependencies": {
     "autoprefixer": "^6.7.7",
     "del": "^2.2.2",
