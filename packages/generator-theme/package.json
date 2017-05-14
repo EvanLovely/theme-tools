@@ -14,6 +14,7 @@
   "main": "generators/index.js",
   "keywords": [
     "theme-tools",
+    "drupal-pattern-lab",
     "yeoman-generator"
   ],
   "devDependencies": {
@@ -27,12 +28,9 @@
     "yeoman-generator": "^1.0.0",
     "yosay": "^2.0.0"
   },
-  "jest": {
-    "testEnvironment": "node"
-  },
   "scripts": {
     "test": "mocha"
   },
-  "repository": "git@github.com:drupal-pattern-lab/theme-tools.git",
+  "repository": "https://github.com/drupal-pattern-lab/theme-tools/tree/master/packages/generator-theme",
   "license": "MIT"
 }

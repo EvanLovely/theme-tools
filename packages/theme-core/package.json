@@ -12,6 +12,7 @@
     "drupal-pattern-lab",
     "pattern-lab"
   ],
+  "repository": "https://github.com/drupal-pattern-lab/theme-tools/tree/master/packages/theme-core",
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "maintainers": [],
   "contributors": [],

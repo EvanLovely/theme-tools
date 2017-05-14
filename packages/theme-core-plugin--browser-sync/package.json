@@ -11,6 +11,7 @@
     "theme-tools",
     "theme-core-plugin"
   ],
+  "repository": "https://github.com/drupal-pattern-lab/theme-tools/tree/master/packages/theme-core-plugin--browser-sync",
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "maintainers": [],
   "contributors": [],
