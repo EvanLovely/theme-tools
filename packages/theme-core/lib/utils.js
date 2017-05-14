@@ -9,7 +9,7 @@ const fs = require('fs');
 /**
  * Run shell command
  * @param cmd {string} - Command to run
- * @param exitOnError {bool} - If that should exit non-zero or carry one.
+ * @param exitOnError {boolean} - If that should exit non-zero or carry one.
  * @param cb {function} - Callback to fire when done.
  */
 function sh(cmd, exitOnError, cb) {
@@ -105,7 +105,7 @@ function fromYaml(string) {
 /**
  * Read Yaml File into Object
  * @param {string} file - File path
- * @param {func} cb - Callback with data
+ * @param {function} cb - Callback with data
  * @see readYamlFileSync
  */
 function readYamlFile(file, cb) {
@@ -129,7 +129,7 @@ function readYamlFileSync(file) {
  * Write Yaml string to File
  * @param {string} file - File path
  * @param {object} data - Object to turn into Yaml
- * @param {func} cb - Optional callback when done
+ * @param {function} cb - Optional callback when done
  * @see writeYamlFileSync
  */
 function writeYamlFile(file, data, cb) {
