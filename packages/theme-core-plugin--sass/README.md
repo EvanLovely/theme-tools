@@ -251,7 +251,7 @@ You can disable rules for a single place using this, or [other](http://stylelint
 }
 ```
 
-[Sometimes `!important` is ok]https://csswizardry.com/2016/05/the-importance-of-important/(); most of the time it's not.
+[Sometimes `!important` is ok](https://csswizardry.com/2016/05/the-importance-of-important/); most of the time it's not.
 
 ### Setting up SassDoc
 
