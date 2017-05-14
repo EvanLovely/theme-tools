@@ -4,10 +4,15 @@ ie:
     - DS_Store
     - less
     - scss
+    - css
 id:
     - scss
     - .svn
     - .sass-cache
+    - styles
+    - scripts
+    - images
+    - fonts
 cleanPublic: 'true'
 patternStates:
     - inprogress
@@ -15,9 +20,9 @@ patternStates:
     - complete
 styleGuideExcludes: ''
 cacheBusterOn: 'true'
-exportDir: export
-publicDir: public
-sourceDir: source
+exportDir: ../export
+publicDir: ../public
+sourceDir: ../source
 defaultPattern: all
 defaultShowPatternInfo: false
 ishMinimum: '240'

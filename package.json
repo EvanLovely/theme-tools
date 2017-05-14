@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
-    "lint": "eslint ./",
+    "eslint": "eslint ./",
+    "stylelint": "node_modules/stylelint/bin/stylelint.js 'examples/common/source/styles/**/*.scss' --syntax scss --config packages/theme-core-config--stylelint/index.js --formatter verbose",
     "fix": "eslint --fix ./",
     "mocha": "mocha packages/*/tests",
     "start": "nodemon --ignore node_modules -w packages/ --exec 'npm test'",
-    "test": "npm run mocha && npm run lint",
+    "test": "npm run mocha && npm run eslint && npm run stylelint",
     "precommit": "npm test",
     "postinstall": "npm run bootstrap"
   },
@@ -42,6 +43,7 @@
     "husky": "^0.13.3",
     "lerna": "^2.0.0-rc.4",
     "mocha": "^3.3.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "stylelint": "^7.10.1"
   }
 }

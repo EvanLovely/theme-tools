@@ -17,11 +17,55 @@ const join = require('path').join;
 const del = require('del');
 const core = require('theme-core');
 const defaultConfig = require('./config.default');
-// const debug = require('gulp-debug');
+const path = require('path');
+const stylelintConfig = require('./.stylelintrc.js'); // stylelint config rules
+
 
 module.exports = (userConfig) => {
   const config = core.utils.merge({}, defaultConfig, userConfig);
   const tasks = {};
+
+  // PostCSS config. @TODO: consider moving all this over to defaultConfig
+  const processors = [
+    autoprefixer({
+      browsers: config.autoPrefixerBrowsers,
+    })
+  ];
+
+
+  function validateCss(errorShouldExit) {
+    return gulp.src(config.src)
+        .pipe(cached('validate:css'))
+        .pipe(plumber({
+          errorHandler(error) {
+            notify.onError({
+              title: 'CSS Linting <%= error.name %> - Line <%= error.line %>',
+              message: '<%= error.message %>',
+            })(error);
+            if (errorShouldExit) process.exit(1);
+            this.emit('end');
+          },
+        }))
+        .pipe(stylelint({
+          config: stylelintConfig,
+          configBasedir: path.join(__dirname, './source/styles'),
+          syntax: 'scss',
+          reporters: [{
+            formatter: 'verbose',
+            console: true
+          }]
+        }));
+  }
+
+  function validateCssWithNoExit() {
+    return validateCss(false);
+  }
+
+  validateCss.description = 'Lint .scss files';
+  if (config.lint.enabled) {
+    tasks.validate = validateCssWithNoExit;
+  }
+
 
   function cssCompile(done, errorShouldExit) {
     gulp.src(config.src)
@@ -44,13 +88,7 @@ module.exports = (userConfig) => {
           sourceComments: config.sourceComments,
           includePaths: config.includePaths,
         }).on('error', sass.logError))
-        .pipe(postcss(
-          [
-            autoprefixer({
-              browsers: config.autoPrefixerBrowsers,
-            }),
-          ]
-        ))
+        .pipe(postcss(processors))
         .pipe(sourcemaps.write((config.sourceMapEmbed) ? null : './'))
         .pipe(gulpif(config.flattenDestOutput, flatten()))
         .pipe(gulp.dest(config.dest))
@@ -60,13 +98,16 @@ module.exports = (userConfig) => {
         });
   }
 
+
   function compile(done) {
+    if (config.lint.enabled) {
+      validateCssWithNoExit();
+    }
     cssCompile(done, true);
   }
-
   compile.description = 'Compile Scss to CSS using Libsass with Autoprefixer and SourceMaps';
-
   tasks.compile = compile;
+
 
   function clean(done) {
     del([
@@ -76,31 +117,8 @@ module.exports = (userConfig) => {
   }
 
   clean.description = 'Clean compiled CSS';
-
   tasks.clean = clean;
 
-  function validateCss(errorShouldExit) {
-    return gulp.src(config.src)
-        .pipe(cached('validate:css'))
-        .pipe(stylelint({
-          failAfterError: errorShouldExit,
-          reporters: [
-            { formatter: 'string', console: true },
-          ],
-        }));
-  }
-
-  function validateCssWithNoExit() {
-    return validateCss(false);
-  }
-
-  function validate() {
-    return validateCss(true);
-  }
-
-  validate.description = 'Lint Scss files';
-
-  if (config.lint.enabled) tasks.validate = validate;
 
   function docs(done) {
     gulp.src(config.src)
@@ -114,10 +132,9 @@ module.exports = (userConfig) => {
         }))
         .on('end', done);
   }
-
   docs.description = 'Build CSS docs using SassDoc';
-
   if (config.sassdoc.enabled) tasks.docs = docs;
+
 
   function watch() {
     const watchTasks = [cssCompile];
@@ -132,10 +149,7 @@ module.exports = (userConfig) => {
         : config.src;
     return gulp.watch(src, gulp.series(watchTasks));
   }
-
   watch.description = 'Watch Scss';
-
   tasks.watch = watch;
-
   return tasks;
 };

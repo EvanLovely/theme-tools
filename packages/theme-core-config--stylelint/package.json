@@ -1,0 +1,49 @@
+{
+  "name": "theme-core-config--stylelint",
+  "version": "0.0.0",
+  "description": "Drupal Pattern Lab's Stylelint config.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "keywords": [
+    "theme-core",
+    "theme-core-config",
+    "theme-tools",
+    "stylelint",
+    "css linting",
+    "stylelint-config",
+    "config",
+    "css",
+    "scss",
+    "styleguide"
+  ],
+  "author": "Salem Ghoweri",
+  "license": "MIT",
+  "repository": "https://github.com/drupal-pattern-lab/theme-tools/tree/master/packages/theme-core-config--stylelint",
+  "devDependencies": {
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.9.0",
+    "pre-commit": "^1.2.2",
+    "stylelint": "^7.9.0",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-scss": "^1.4.3",
+    "stylelint-selector-bem-pattern": "^1.0.0"
+  },
+  "peerDependencies": {
+    "stylelint": "^7.9.0",
+    "stylelint-scss": "^1.4.3",
+    "stylelint-selector-bem-pattern": "^1.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb"
+    ]
+  }
+}
