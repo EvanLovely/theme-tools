@@ -40,7 +40,7 @@ gulp.task('watch:pl', plTasks.watch);
 
 ## Tasks
 
-These tasks are methods inside `plTasks` from the above code example. You can run them anyway you can run a function, though they are often ran via Gulp.
+These tasks are methods inside `plTasks` from the above code example. You can run them anyway you can run a function, though they are often ran via Gulp. All tasks take a callback function as the first and only parameter that will run when the task is done - exactly how `gulp.task()`, `gulp.parallel()`, and `gulp.series()` want.
 
 ### `plTasks.compile()` - Compile Pattern Lab
 
@@ -51,6 +51,8 @@ Compiles Pattern Lab. Basically runs `php pattern-lab/core/console --generate` f
 Watch and Compile Pattern Lab.
 
 ## Configuration
+
+**All configuration is deep merged with [`config.default.js`](config.default.js).**
 
 ### `configFile`
 
@@ -84,3 +86,11 @@ These file extensions are watched inside the `sourceDir` found in `configFile` a
 Type: `Array<String>` Default: `[]`
 
 Extra paths to watch that would trigger a compile.
+
+## Theme Core Events
+
+This is only info for other Theme Core plugin developers.
+
+### emit `'reload'`
+
+This event is emmited when files are done compiling.

@@ -50,9 +50,9 @@ gulp.task('clean:sass', sassTasks.clean);
 gulp.task('docs:sass', sassTasks.docs);
 ```
 
-- [Task Details](#tasks)
-- [Setting up SassDoc](#setting-up-sassdoc)
-- [Setting up Stylelint](#setting-up-stylelint)
+- See [Task Details](#tasks) below
+- See [Setting up SassDoc](#setting-up-sassdoc) below
+- See [Setting up Stylelint](#setting-up-stylelint) below
 
 # Details
 
@@ -283,3 +283,11 @@ $color--link: blue;
   }
 }
 ```
+
+## Theme Core Events
+
+This is only info for other Theme Core plugin developers.
+
+### emit `'reload'`
+
+This event is emmited when files are done compiling. The first paramater is a String of the files changed.
