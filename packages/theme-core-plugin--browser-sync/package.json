@@ -1,6 +1,6 @@
 {
   "name": "theme-core-plugin--browser-sync",
-  "version": "0.1.0",
+  "version": "0.2.4",
   "description": "Browser Sync plugin for Theme Core",
   "main": "browser-sync.js",
   "scripts": {
@@ -11,12 +11,13 @@
     "theme-tools",
     "theme-core-plugin"
   ],
+  "repository": "https://github.com/drupal-pattern-lab/theme-tools/tree/master/packages/theme-core-plugin--browser-sync",
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "maintainers": [],
   "contributors": [],
   "license": "MIT",
   "dependencies": {
     "browser-sync": "^2.18.8",
-    "theme-core": "^0.1.0"
+    "theme-core": "^0.2.4"
   }
 }

@@ -1,0 +1,3 @@
+**/generators/**/templates/**
+node_modules
+examples

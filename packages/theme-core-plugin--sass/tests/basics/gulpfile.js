@@ -15,9 +15,7 @@ const cssTasks = require('../../sass')(config);
 
 gulp.task('css', cssTasks.compile);
 gulp.task('watch:css', cssTasks.watch);
-gulp.task('validate:css', cssTasks.validate);
 gulp.task('clean:css', cssTasks.clean);
-gulp.task('docs:css', cssTasks.docs);
 
 gulp.task('compile', gulp.series([
   cssTasks.clean,
@@ -28,7 +26,6 @@ gulp.task('default', gulp.series([
   cssTasks.clean,
   gulp.parallel([
     cssTasks.compile,
-    cssTasks.docs,
   ]),
   cssTasks.watch,
 ]));

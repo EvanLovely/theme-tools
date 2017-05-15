@@ -1,5 +1,5 @@
 /* global describe, it, before */
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, func-names */
 const chai = require('chai');
 const join = require('path').join;
 const execSync = require('child_process').execSync;
@@ -7,7 +7,8 @@ const execSync = require('child_process').execSync;
 const assert = chai.assert;
 chai.use(require('chai-fs'));
 
-describe('Sass Basics', () => {
+describe('Sass Basics', function () {
+  this.timeout(5000);
   let output = '';
   before(() => {
     try {

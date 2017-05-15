@@ -5,7 +5,7 @@ const browserSync = require('browser-sync').create('server');
 const defaultConfig = require('./config.default');
 
 module.exports = (userConfig) => {
-  const config = core.utils.merge(defaultConfig, userConfig);
+  const config = core.utils.merge({}, defaultConfig, userConfig);
 
   const options = {
     browser: config.browser,
@@ -50,9 +50,7 @@ module.exports = (userConfig) => {
     options.startPath = config.startPath;
     options.serveStatic = config.serveStatic || [];
   } else {
-    options.server = {
-      baseDir: config.baseDir,
-    };
+    options.server = config.baseDir;
     options.startPath = config.startPath;
   }
 
@@ -63,7 +61,7 @@ module.exports = (userConfig) => {
 
   /**
    * Reload BrowserSync
-   * @param {(string|string[])} files - File paths to reload
+   * @param {(string|string[])=} files - File paths to reload
    */
   function reload(files) {
     browserSync.reload(files);

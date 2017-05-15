@@ -4,15 +4,15 @@
 
 See the `packages/` folder for the individual npm modules.
 
+See the `examples/` folder for how it can all come together.
+
 # Contributing
 
 ## Dev Setup
 
 This uses [`lerna` for monorepo setup](https://github.com/lerna/lerna).
 
-Have `yarn` installed already.
-
 ```bash
-yarn install
-yarn run bootstrap # this is `lerna bootstrap`
+npm install
+npm run bootstrap # this is `lerna bootstrap`
 ```

@@ -5,12 +5,6 @@ module.exports = {
   dest: 'dest/',
   extraWatches: [],
   flattenDestOutput: true,
-  lint: {
-    enabled: true,
-    onWatch: true,
-    // in addition to linting `src`, this is added.
-    extraSrc: [],
-  },
   // enables additional debugging information in the output file as CSS comments
   sourceComments: false,
   sourceMapEmbed: false,
@@ -24,9 +18,14 @@ module.exports = {
   includePaths: [
     './node_modules',
   ],
+  // Stylelint - requires config file setup ~ http://stylelint.io
+  lint: {
+    enabled: false,
+    onWatch: true,
+  },
   // http://sassdoc.com
   sassdoc: {
-    enabled: true,
+    enabled: false,
     dest: 'dest/sassdoc',
     verbose: false,
     basePath: '',
