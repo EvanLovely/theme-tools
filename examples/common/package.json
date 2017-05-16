@@ -1,7 +1,7 @@
 {
   "name": "common",
   "description": "common theme",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "private": true,
   "scripts": {
     "start": "gulp",
@@ -9,9 +9,9 @@
     "setup": "cd pattern-lab && composer install --no-interaction"
   },
   "dependencies": {
-    "@theme-tools/plugin-browser-sync": "^0.2.6",
-    "@theme-tools/plugin-pattern-lab-php": "^0.2.6",
-    "@theme-tools/plugin-sass": "^0.2.6",
+    "@theme-tools/plugin-browser-sync": "^0.2.7",
+    "@theme-tools/plugin-pattern-lab-php": "^0.2.7",
+    "@theme-tools/plugin-sass": "^0.2.7",
     "gulp": "gulpjs/gulp#4.0"
   },
   "devDependencies": {}
