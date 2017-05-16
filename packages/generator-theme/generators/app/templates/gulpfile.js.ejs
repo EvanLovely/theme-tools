@@ -1,16 +1,16 @@
 'use strict';
 const gulp = require('gulp');
-<% if (css === 'theme-core-plugin--sass') { -%>
-const cssTasks = require('theme-core-plugin--sass')({});
+<% if (css === '@theme-tools/plugin-sass') { -%>
+const cssTasks = require('@theme-tools/plugin-sass')({});
 <% } -%>
 <% if (browserSync) { -%>
-const browserSyncTasks = require('theme-core-plugin--browser-sync')({});
+const browserSyncTasks = require('@theme-tools/plugin-browser-sync')({});
 <% } -%>
 <% if (usePatternLab) { -%>
-const patternLabTasks = require('theme-core-plugin--pattern-lab--php')({});
+const patternLabTasks = require('@theme-tools/plugin-pattern-lab--php')({});
 <% } -%>
 <!---->
-<% if (css === 'theme-core-plugin--sass') { -%>
+<% if (css === '@theme-tools/plugin-sass') { -%>
 gulp.task('css', cssTasks.compile);
 <% } -%>
 <% if (browserSync) { -%>

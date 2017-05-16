@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "gulp": "gulpjs/gulp#4.0",
-    "theme-core-plugin--browser-sync": "^0.2.4",
-    "theme-core-plugin--pattern-lab--php": "^0.2.4",
-    "theme-core-plugin--sass": "^0.2.4"
+    "@theme-tools/plugin-browser-sync": "^0.2.4",
+    "@theme-tools/plugin-pattern-lab--php": "^0.2.4",
+    "@theme-tools/plugin-sass": "^0.2.4"
   },
   "devDependencies": {}
 }

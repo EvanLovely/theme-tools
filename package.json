@@ -1,6 +1,6 @@
 {
   "name": "theme-tools",
-  "description": "A monorepo for theme-core, yo theme, and more to help theming with good tools.",
+  "description": "A monorepo for theme-tools, yo theme, and more to help theming with good tools.",
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
@@ -14,23 +14,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/drupal-pattern-lab/theme-tools.git"
+    "url": "git+https://github.com/theme-tools/theme-tools.git"
   },
   "keywords": [
     "theme-tools",
-    "theme-core",
-    "monorepo",
-    "pattern-lab",
-    "drupal"
+    "monorepo"
   ],
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "maintainers": [],
   "contributors": [],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/drupal-pattern-lab/theme-tools/issues"
+    "url": "https://github.com/theme-tools/theme-tools/issues"
   },
-  "homepage": "https://github.com/drupal-pattern-lab/theme-tools#readme",
+  "homepage": "https://github.com/theme-tools/theme-tools#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-fs": "^1.0.0",

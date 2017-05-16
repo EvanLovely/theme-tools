@@ -1,4 +1,4 @@
-# Browser Sync Plugin for Theme Core
+# Browser Sync Plugin for Theme Tools
 
 > Theme core plugins let you easily pass in configuration and get a set of Gulp-ready task functions back that have sensible defaults and work well together.
 
@@ -11,7 +11,7 @@
 ## Install
 
 ```bash
-npm install theme-core-plugin--browser-sync --save
+npm install @theme-tools/plugin-browser-sync --save
 ```
 
 ## Configure
@@ -19,7 +19,7 @@ npm install theme-core-plugin--browser-sync --save
 The config that is passed in is merged with [`config.default.js`](config.default.js). We suggest starting with [`config.simple.js`](config.simple.js) to get started:
 
 ```bash
-cp node_modules/theme-core-plugin--browser-sync/config.simple.js config.browser-sync.js
+cp node_modules/@theme-tools/plugin-browser-sync/config.simple.js config.browser-sync.js
 ```
 
 ## Setup
@@ -30,7 +30,7 @@ Add this to your `gulpfile.js`:
 const gulp = require('gulp');
 const config = {};
 config.browserSync = require('./config.browser-sync.js');
-const browserSyncTasks = require('theme-core-plugin--browser-sync')(config.browserSync);
+const browserSyncTasks = require('@theme-tools/plugin-browser-sync')(config.browserSync);
 
 gulp.task('serve', browserSyncTasks.serve);
 ```

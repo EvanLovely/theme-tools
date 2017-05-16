@@ -1,7 +1,7 @@
 'use strict';
 const gulp = require('gulp');
-// Default config at `node_modules/theme-core-plugin--sass/config.default.js`
-const cssTasks = require('theme-core-plugin--sass')({
+// Default config at `node_modules/@theme-tools/plugin-sass/config.default.js`
+const cssTasks = require('@theme-tools/plugin-sass')({
   src: [
     'pattern-lab/source/_scss/**/*.scss'
   ],
@@ -10,12 +10,12 @@ const cssTasks = require('theme-core-plugin--sass')({
     enabled: false
   }
 });
-// Default config at `node_modules/theme-core-plugin--browser-sync/config.default.js`
-const browserSyncTasks = require('theme-core-plugin--browser-sync')({
+// Default config at `node_modules/@theme-tools/plugin-browser-sync/config.default.js`
+const browserSyncTasks = require('@theme-tools/plugin-browser-sync')({
   startPath: 'pattern-lab/public'
 });
-// Default config at `node_modules/theme-core-plugin--pattern-lab--php/config.default.js`
-const patternLabTasks = require('theme-core-plugin--pattern-lab--php')({
+// Default config at `node_modules/@theme-tools/plugin-pattern-lab--php/config.default.js`
+const patternLabTasks = require('@theme-tools/plugin-pattern-lab--php')({
   configFile: 'pattern-lab/config/config.yml'
 });
 

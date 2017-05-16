@@ -1,5 +1,5 @@
 {
-  "name": "theme-core",
+  "name": "@theme-tools/core",
   "version": "0.2.4",
   "description": "Core for theme tooling suite.",
   "main": "lib/index.js",
@@ -7,12 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "theme-core",
-    "theme-tools",
-    "drupal-pattern-lab",
-    "pattern-lab"
+    "theme-tools"
   ],
-  "repository": "https://github.com/drupal-pattern-lab/theme-tools/tree/master/packages/theme-core",
+  "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/core",
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "maintainers": [],
   "contributors": [],
