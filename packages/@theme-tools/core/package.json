@@ -14,6 +14,9 @@
   "maintainers": [],
   "contributors": [],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "js-yaml": "^3.8.3",
     "lodash.merge": "^4.6.0",

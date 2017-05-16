@@ -15,6 +15,9 @@
   "maintainers": [],
   "contributors": [],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@theme-tools/core": "^0.2.5",
     "browser-sync": "^2.18.8"

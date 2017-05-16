@@ -13,6 +13,9 @@
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "license": "MIT",
   "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/plugin-sass",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@theme-tools/core": "^0.2.5",
     "autoprefixer": "^6.7.7",
