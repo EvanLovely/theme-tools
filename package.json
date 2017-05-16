@@ -6,7 +6,7 @@
     "bootstrap": "lerna bootstrap --hoist",
     "lint": "eslint ./",
     "fix": "eslint --fix ./",
-    "mocha": "mocha packages/*/tests && mocha packages/@theme-tools/*/tests",
+    "mocha": "mocha packages/*/tests",
     "start": "nodemon --ignore node_modules -w packages/ --exec 'npm test'",
     "test": "npm run mocha && npm run lint",
     "precommit": "npm test",
