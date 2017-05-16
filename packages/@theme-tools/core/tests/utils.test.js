@@ -1,4 +1,4 @@
-/* global describe, it, before */
+/* global describe, it */
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 const chai = require('chai');
 const utils = require('../lib/utils');
