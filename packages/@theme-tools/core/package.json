@@ -1,6 +1,6 @@
 {
   "name": "@theme-tools/core",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Core for theme tooling suite.",
   "main": "lib/index.js",
   "scripts": {
