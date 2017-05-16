@@ -1,4 +1,4 @@
-# Sass Plugin for Theme Core
+# Sass Plugin for Theme Tools
 
 > Theme core plugins let you easily pass in configuration and get a set of Gulp-ready task functions back that have sensible defaults and work well together.
 
@@ -20,7 +20,7 @@
 ## Install
 
 ```bash
-npm install theme-core-plugin--sass --save
+npm install @theme-tools/plugin-sass --save
 ```
 
 ## Configure
@@ -28,7 +28,7 @@ npm install theme-core-plugin--sass --save
 The config that is passed in is merged with [`config.default.js`](config.default.js). We suggest starting with [`config.simple.js`](config.simple.js) to get started:
 
 ```bash
-cp node_modules/theme-core-plugin--sass/config.simple.js config.sass.js
+cp node_modules/@theme-tools/plugin-sass/config.simple.js config.sass.js
 ```
 
 See [details on configuration](#configuration) below.
@@ -41,7 +41,7 @@ Add this to your `gulpfile.js`:
 const gulp = require('gulp');
 const config = {};
 config.sass = require('./config.sass.js');
-const sassTasks = require('theme-core-plugin--sass')(config.sass);
+const sassTasks = require('@theme-tools/plugin-sass')(config.sass);
 
 gulp.task('sass', sassTasks.compile);
 gulp.task('watch:sass', sassTasks.watch);

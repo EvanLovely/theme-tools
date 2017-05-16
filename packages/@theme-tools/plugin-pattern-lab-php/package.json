@@ -1,23 +1,22 @@
 {
-  "name": "theme-core-plugin--pattern-lab--php",
+  "name": "@theme-tools/plugin-pattern-lab-php",
   "version": "0.2.4",
-  "description": "Pattern Lab PHP plugin for Theme Core",
+  "description": "Pattern Lab PHP plugin for Theme Tools",
   "main": "pattern-lab.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "pattern-lab",
-    "theme-core",
-    "theme-core-plugin",
+    "theme-tools-plugin",
     "theme-tools"
   ],
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "license": "MIT",
-  "repository": "https://github.com/drupal-pattern-lab/theme-tools/tree/master/packages/theme-core-plugin--pattern-lab--php",
+  "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/plugin-pattern-lab-php",
   "dependencies": {
     "gulp": "gulpjs/gulp#4.0",
     "js-yaml": "^3.8.3",
-    "theme-core": "^0.2.4"
+    "@theme-tools/core": "^0.2.4"
   }
 }

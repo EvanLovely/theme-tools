@@ -54,7 +54,7 @@ module.exports = class extends Generator {
         choices: [
           {
             name: 'Sass',
-            value: 'theme-core-plugin--sass',
+            value: '@theme-tools/plugin-sass',
             default: true
           },
           {
@@ -146,11 +146,11 @@ module.exports = class extends Generator {
     }
 
     if (this.props.browserSync) {
-      packageJson.dependencies['theme-core-plugin--browser-sync'] = `^${this.props.repoVer}`;
+      packageJson.dependencies['@theme-tools/plugin-browser-sync'] = `^${this.props.repoVer}`;
     }
 
     if (this.props.usePatternLab) {
-      packageJson.dependencies['theme-core-plugin--pattern-lab--php'] = `^${this.props.repoVer}`;
+      packageJson.dependencies['@theme-tools/plugin-pattern-lab-php'] = `^${this.props.repoVer}`;
     }
 
     this.fs.writeJSON(this.destinationPath('package.json'), packageJson);
