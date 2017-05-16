@@ -10,7 +10,7 @@
     "theme-tools",
     "theme-tools-plugin"
   ],
-  "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/@theme-tools/plugin-browser-sync",
+  "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/%40theme-tools/plugin-browser-sync",
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "maintainers": [],
   "contributors": [],

@@ -9,7 +9,7 @@
   "keywords": [
     "theme-tools"
   ],
-  "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/@theme-tools/core",
+  "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/%40theme-tools/core",
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "maintainers": [],
   "contributors": [],
