@@ -28,6 +28,9 @@
     "url": "https://github.com/theme-tools/theme-tools/issues"
   },
   "homepage": "https://github.com/theme-tools/theme-tools#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-fs": "^1.0.0",
