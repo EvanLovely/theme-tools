@@ -17,6 +17,6 @@
   "license": "MIT",
   "dependencies": {
     "browser-sync": "^2.18.8",
-    "theme-core": "^0.2.4"
+    "@theme-tools/core": "^0.2.4"
   }
 }

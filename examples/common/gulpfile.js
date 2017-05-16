@@ -14,8 +14,8 @@ const cssTasks = require('@theme-tools/plugin-sass')({
 const browserSyncTasks = require('@theme-tools/plugin-browser-sync')({
   startPath: 'pattern-lab/public'
 });
-// Default config at `node_modules/@theme-tools/plugin-pattern-lab--php/config.default.js`
-const patternLabTasks = require('@theme-tools/plugin-pattern-lab--php')({
+// Default config at `node_modules/@theme-tools/plugin-pattern-lab-php/config.default.js`
+const patternLabTasks = require('@theme-tools/plugin-pattern-lab-php')({
   configFile: 'pattern-lab/config/config.yml'
 });
 

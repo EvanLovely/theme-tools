@@ -29,6 +29,6 @@
     "gulp-stylelint": "^3.9.0",
     "sassdoc": "^2.2.2",
     "stylelint-scss": "^1.4.4",
-    "theme-core": "^0.2.4"
+    "@theme-tools/core": "^0.2.4"
   }
 }

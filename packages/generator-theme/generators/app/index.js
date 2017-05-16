@@ -150,7 +150,7 @@ module.exports = class extends Generator {
     }
 
     if (this.props.usePatternLab) {
-      packageJson.dependencies['@theme-tools/plugin-pattern-lab--php'] = `^${this.props.repoVer}`;
+      packageJson.dependencies['@theme-tools/plugin-pattern-lab-php'] = `^${this.props.repoVer}`;
     }
 
     this.fs.writeJSON(this.destinationPath('package.json'), packageJson);

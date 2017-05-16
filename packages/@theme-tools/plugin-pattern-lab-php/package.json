@@ -17,6 +17,6 @@
   "dependencies": {
     "gulp": "gulpjs/gulp#4.0",
     "js-yaml": "^3.8.3",
-    "theme-core": "^0.2.4"
+    "@theme-tools/core": "^0.2.4"
   }
 }
