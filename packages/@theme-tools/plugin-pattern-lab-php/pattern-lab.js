@@ -1,7 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
-const core = require('theme-core');
+const core = require('@theme-tools/core');
 const path = require('path');
 const yaml = require('js-yaml');
 const fs = require('fs');

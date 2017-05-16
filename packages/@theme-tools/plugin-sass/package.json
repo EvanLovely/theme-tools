@@ -1,19 +1,18 @@
 {
-  "name": "theme-core-plugin--sass",
+  "name": "@theme-tools/plugin-sass",
   "version": "0.2.4",
-  "description": "Sass compiling using libsass and Gulp.",
+  "description": "Theme Tools plugin for Sass compiling using libsass and Gulp.",
   "main": "sass.js",
   "scripts": {
     "test": "mocha tests/*.test.js"
   },
   "keywords": [
-    "theme-core",
-    "theme-core-plugin",
-    "theme-tools"
+    "theme-tools",
+    "theme-tools-plugin"
   ],
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "license": "MIT",
-  "repository": "https://github.com/drupal-pattern-lab/theme-tools/tree/master/packages/theme-core-plugin--sass",
+  "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/plugin-sass",
   "dependencies": {
     "autoprefixer": "^6.7.7",
     "del": "^2.2.2",
@@ -30,6 +29,6 @@
     "gulp-stylelint": "^3.9.0",
     "sassdoc": "^2.2.2",
     "stylelint-scss": "^1.4.4",
-    "theme-core": "^0.2.4"
+    "@theme-tools/core": "^0.2.4"
   }
 }

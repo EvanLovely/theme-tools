@@ -15,7 +15,7 @@ const gulpif = require('gulp-if');
 const sassdoc = require('sassdoc');
 const join = require('path').join;
 const del = require('del');
-const core = require('theme-core');
+const core = require('@theme-tools/core');
 const defaultConfig = require('./config.default');
 // const debug = require('gulp-debug');
 

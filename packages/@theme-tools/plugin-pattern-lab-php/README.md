@@ -1,4 +1,4 @@
-# Pattern Lab Plugin for Theme Core
+# Pattern Lab Plugin for Theme Tools
 
 > Theme core plugins let you easily pass in configuration and get a set of Gulp-ready task functions back that have sensible defaults and work well together.
 
@@ -11,7 +11,7 @@
 ## Install
 
 ```bash
-npm install theme-core-plugin--pattern-lab--php --save
+npm install @theme-tools/plugin-pattern-lab-php --save
 ```
 
 ## Configure
@@ -19,7 +19,7 @@ npm install theme-core-plugin--pattern-lab--php --save
 The config that is passed in is merged with [`config.default.js`](config.default.js).
 
 ```bash
-cp node_modules/theme-core-plugin--pattern-lab--php/config.default.js config.pattern-lab.js
+cp node_modules/@theme-tools/plugin-pattern-lab-php/config.default.js config.pattern-lab.js
 ```
 
 ## Setup
@@ -30,7 +30,7 @@ Add this to your `gulpfile.js`:
 const gulp = require('gulp');
 const config = {};
 config.pl = require('./config.pattern-lab.js');
-const plTasks = require('theme-core-plugin--pattern-lab--php')(config.pl);
+const plTasks = require('@theme-tools/plugin-pattern-lab-php')(config.pl);
 
 gulp.task('pl', plTasks.compile);
 gulp.task('watch:pl', plTasks.watch);

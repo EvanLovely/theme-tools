@@ -1,6 +1,6 @@
 'use strict';
 
-const core = require('theme-core');
+const core = require('@theme-tools/core');
 const browserSync = require('browser-sync').create('server');
 const defaultConfig = require('./config.default');
 
