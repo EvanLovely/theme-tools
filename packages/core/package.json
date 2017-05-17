@@ -1,6 +1,6 @@
 {
   "name": "@theme-tools/core",
-  "version": "0.2.4",
+  "version": "0.2.9",
   "description": "Core for theme tooling suite.",
   "main": "lib/index.js",
   "scripts": {
@@ -14,6 +14,9 @@
   "maintainers": [],
   "contributors": [],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "js-yaml": "^3.8.3",
     "lodash.merge": "^4.6.0",

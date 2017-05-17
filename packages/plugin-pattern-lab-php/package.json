@@ -1,6 +1,6 @@
 {
   "name": "@theme-tools/plugin-pattern-lab-php",
-  "version": "0.2.4",
+  "version": "0.2.9",
   "description": "Pattern Lab PHP plugin for Theme Tools",
   "main": "pattern-lab.js",
   "scripts": {
@@ -14,9 +14,12 @@
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "license": "MIT",
   "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/plugin-pattern-lab-php",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
+    "@theme-tools/core": "^0.2.9",
     "gulp": "gulpjs/gulp#4.0",
-    "js-yaml": "^3.8.3",
-    "@theme-tools/core": "^0.2.4"
+    "js-yaml": "^3.8.3"
   }
 }
