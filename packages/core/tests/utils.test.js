@@ -50,4 +50,12 @@ tags:
       assert.fileEqual(tempFile, path.join(__dirname, './samples/sample1.yml'));
     });
   });
+
+  it('flattenArray', () => {
+    assert.deepEqual(utils.flattenArray([[1, 2], [3, 4]]), [1, 2, 3, 4]);
+  });
+
+  it('concatArrays', () => {
+    assert.deepEqual(utils.concatArrays([1, 2], [3, 4]), [1, 2, 3, 4]);
+  });
 });

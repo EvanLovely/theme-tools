@@ -56,6 +56,16 @@ function flattenArray(arrayOfArrays) {
 }
 
 /**
+ * Concat Arrays together
+ * @param {Array} a - First Array
+ * @param {Array} b - Second Array
+ * @returns {Array} - The two arrays together.
+ */
+function concatArrays(a, b) {
+  return [].concat(a, b);
+}
+
+/**
  * Make an array unique by removing duplicate entries.
  * @param item {Array}
  * @returns {Array}
@@ -150,6 +160,7 @@ function writeYamlFileSync(file, data) {
 module.exports = {
   sh,
   flattenArray,
+  concatArrays,
   uniqueArray,
   error,
   merge,

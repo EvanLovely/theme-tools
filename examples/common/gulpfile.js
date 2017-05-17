@@ -1,4 +1,5 @@
 'use strict';
+
 const gulp = require('gulp');
 // Default config at `node_modules/@theme-tools/plugin-sass/config.default.js`
 const cssTasks = require('@theme-tools/plugin-sass')({
@@ -19,8 +20,18 @@ const patternLabTasks = require('@theme-tools/plugin-pattern-lab-php')({
   configFile: 'pattern-lab/config/config.yml'
 });
 
+const jsTasks = require('@theme-tools/plugin-js-concat-babel')({
+  src: [
+    'js/**/*.js'
+  ],
+  dest: 'assets'
+});
+
 gulp.task('css', cssTasks.compile);
 gulp.task('pl', patternLabTasks.compile);
+gulp.task('validate:js', jsTasks.validate);
+gulp.task('js', jsTasks.compile);
+gulp.task('watch:js', jsTasks.watch);
 
 gulp.task('compile', gulp.series([
   cssTasks.clean,
