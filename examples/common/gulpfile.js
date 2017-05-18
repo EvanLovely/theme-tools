@@ -29,6 +29,7 @@ const jsTasks = require('@theme-tools/plugin-js-concat-babel')({
 
 gulp.task('validate:js', jsTasks.validate);
 gulp.task('js', jsTasks.compile);
+gulp.task('fix:js', jsTasks.fix);
 gulp.task('clean:js', jsTasks.clean);
 gulp.task('watch:js', jsTasks.watch);
 

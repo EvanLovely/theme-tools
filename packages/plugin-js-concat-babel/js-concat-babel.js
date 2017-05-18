@@ -24,6 +24,15 @@ module.exports = (userConfig) => {
       .pipe(eslint.format());
   }
 
+  function fix() {
+    return gulp.src([].concat(config.src, config.eslint.extraSrc))
+    .pipe(eslint({
+      fix: true
+    }))
+    .pipe(gulp.dest(file => file.base));
+  }
+  fix.description = 'Fix the ESlint errors that can be fixed.'
+
   function validateJs() {
     return validate()
       .pipe(eslint.failAfterError());
@@ -67,5 +76,6 @@ module.exports = (userConfig) => {
   tasks.compile = compileJs;
   tasks.watch = watch;
   if (config.eslint.enabled) tasks.validate = validateJs;
+  if (config.eslint.enabled) tasks.fix = fix;
   return tasks;
 };

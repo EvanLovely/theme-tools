@@ -42,6 +42,7 @@ const jsTasks = require('@theme-tools/plugin-js-concat-babel')(config.js);
 
 gulp.task('validate:js', jsTasks.validate);
 gulp.task('js', jsTasks.compile);
+gulp.task('fix:js', jsTasks.fix);
 gulp.task('clean:js', jsTasks.clean);
 gulp.task('watch:js', jsTasks.watch);
 ```
@@ -59,6 +60,10 @@ Concat all the files in `config.src` together, run them through Babel with the `
 ### `jsTasks.validate()` - Lint using Eslint
 
 Test code using eslint.
+
+### `jsTasks.fix()` - Try Fix Eslint Errors/Warnings
+
+Fix the easy stuff to fix. Modifies original files. Awesome.
 
 ### `jsTasks.clean()` - Clean files
 
