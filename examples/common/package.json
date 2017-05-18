@@ -12,6 +12,7 @@
     "@theme-tools/plugin-browser-sync": "^0.2.9",
     "@theme-tools/plugin-pattern-lab-php": "^0.2.9",
     "@theme-tools/plugin-sass": "^0.2.9",
+    "@theme-tools/plugin-js-concat-babel": "^0.2.9",
     "gulp": "gulpjs/gulp#4.0"
   },
   "devDependencies": {}
