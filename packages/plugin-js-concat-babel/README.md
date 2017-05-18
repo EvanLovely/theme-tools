@@ -1,6 +1,14 @@
-# Browser Sync Plugin for Theme Tools
+# JS (Concat, Babel) Plugin for Theme Tools
 
 > Theme core plugins let you easily pass in configuration and get a set of Gulp-ready task functions back that have sensible defaults and work well together.
+
+## Features
+
+- Concatenate multiple JS files into a single file
+- Run through Babel so you can use ES6 thanks to `babel-preset-es2015` (optional)
+- Process end file with Uglify (optional)
+- Validate code using ESlint (optional)
+- Watch tasks that only lints changed files
 
 # Getting Started
 
@@ -11,7 +19,7 @@
 ## Install
 
 ```bash
-npm install @theme-tools/plugin-browser-sync --save
+npm install @theme-tools/plugin-js-concat-babel --save
 ```
 
 ## Configure
@@ -19,7 +27,7 @@ npm install @theme-tools/plugin-browser-sync --save
 The config that is passed in is merged with [`config.default.js`](config.default.js). We suggest starting with [`config.simple.js`](config.simple.js) to get started:
 
 ```bash
-cp node_modules/@theme-tools/plugin-browser-sync/config.simple.js config.browser-sync.js
+cp node_modules/@theme-tools/plugin-js-concat-babel/config.simple.js config.js.js
 ```
 
 ## Setup
@@ -29,100 +37,97 @@ Add this to your `gulpfile.js`:
 ```js
 const gulp = require('gulp');
 const config = {};
-config.browserSync = require('./config.browser-sync.js');
-const browserSyncTasks = require('@theme-tools/plugin-browser-sync')(config.browserSync);
+config.js = require('./config.js.js');
+const jsTasks = require('@theme-tools/plugin-js-concat-babel')(config.js);
 
-gulp.task('serve', browserSyncTasks.serve);
+gulp.task('validate:js', jsTasks.validate);
+gulp.task('js', jsTasks.compile);
+gulp.task('clean:js', jsTasks.clean);
+gulp.task('watch:js', jsTasks.watch);
 ```
 
 # Details
 
 ## Tasks
 
-These tasks are methods inside `browserSyncTasks` from the above code example. You can run them anyway you can run a function, though they are often ran via Gulp. All tasks take a callback function as the first and only parameter that will run when the task is done - exactly how `gulp.task()`, `gulp.parallel()`, and `gulp.series()` want.
+These tasks are methods inside `jsTasks` from the above code example. You can run them anyway you can run a function, though they are often ran via Gulp. All tasks take a callback function as the first and only parameter that will run when the task is done - exactly how `gulp.task()`, `gulp.parallel()`, and `gulp.series()` want.
 
-### `browserSyncTasks.serve()` - Create server
+### `jsTasks.compile()` - Compile JS
 
-Create server using [Browser Sync](https://www.browsersync.io/).
+Concat all the files in `config.src` together, run them through Babel with the `babel-preset-es2015` preset, Uglify it, then write it to `config.dest`.
 
-### `browserSyncTasks.reload()` - Reload the page
+### `jsTasks.validate()` - Lint using Eslint
 
-Probably not needed. Wraps [`.reload()`](https://www.browsersync.io/docs/api#api-reload) so you can just fire it or pass in a string or array of strings of paths of files to reload which can allow CSS files to get injected.
+Test code using eslint.
+
+### `jsTasks.clean()` - Clean files
+
+Deletes files that were made.
+
+### `jsTasks.watch()` - Watch files
+
+Watches files, then compiles and validates the changed files.
 
 ## Configuration
 
 **All configuration is deep merged with [`config.default.js`](config.default.js).**
 
-### `baseDir`
+### `src`
 
-Type: `Object | String | Boolean` Default: `./`
+Type: `Array<String>` Default: `[ 'js/**/*.js' ]`
 
-Where to serve static files from. Disabled when `domain` is set. Passed to [`browser-sync`'s `server`](https://browsersync.io/docs/options#option-server) where lots of extra config info can be found.
+All the files to work on.
 
-### `domain`
+### `dest`
 
-Type: `String` Default: `null`
+Type: `String` Default: `'dest/'`
 
-If you have local hosting already going and you want to use BrowserSync's [`proxy`](https://browsersync.io/docs/options#option-proxy), then set your local domain here (ie `mysite.dev`). Having this set disables the static server. Passed to [`browser-sync`'s `proxy`](https://browsersync.io/docs/options#option-proxy).
+Destination folder to write files.
 
-### `startPath`
+### `destName`
 
-Type: `String` Default: `''`
+Type: `String` Default: `'all.js'`
 
-The path shown when the URLs are shown in the Terminal. If you have Pattern Lab going, it's nice to have `pattern-lab/public` set.
+The filename to write.
 
-### `watchFiles`
+### `sourceMapEmbed`
+
+Type: `Boolean` Default: `false`
+
+Should sourcemaps be embeded in the file or as their own `*.js.map` file?
+
+### `uglify`
+
+Type: `Boolean` Default: `true`
+
+Should the file be Uglified?
+
+### `babel`
+
+Type: `Boolean` Default: `true`
+
+Should Babel transpile the JS using the preset `babel-preset-es2015`?
+
+### `eslint`
+
+Type: `Object`
+
+#### `eslint.enabled`
+
+Type: `Boolean` Default: `true`
+
+Enable ESlint?
+
+#### `eslint.extraSrc`
 
 Type: `Array<String>` Default: `[]`
 
-Files to watch that will trigger a reload; css files will try to be injected (as long as they are brought using `<link>` and not `<style>@import</style>`). Passed to [`browser-sync`'s `files`](https://browsersync.io/docs/options#option-files).
-
-### `openBrowserAtStart`
-
-Type: `Boolean` Default: `false`
-
-If the browser(s) should open at the start.
-
-### `browsers`
-
-Type: `Array<String>` Default: `[ 'Google Chrome' ]`
-
-If `openBrowserAtStart`, then which browsers to open.
-
-### `tunnel`
-
-Type: `Boolean` Default: `false`
-
-Tunnel the Browsersync server through a random Public URL like -> `http://randomstring23232.localtunnel.me`. Great for showing to other people remotely or testing sites on Browser Stack. Passed to [`browser-sync`'s `tunnel`](https://browsersync.io/docs/options#option-tunnel).
-
-### `port`
-
-Type: `Number` Default: `3050`
-
-The port to use (i.e. `http://localhost:3050`). If the port is taken, it will increment by one and use that port so you can have multiple instances running if needed.
-
-### `reloadDelay`
-
-Type: `Number` Default: `50`
-
-How long to wait, in milliseconds, between file change and reload.
-
-### `reloadDebounce`
-
-Type: `Number` Default: `750`
-
-Wait for a specified window of event-silence before sending any reload events. Passed to [`browser-sync`'s `reloadDebounce`](https://browsersync.io/docs/options#option-reloadDebounce).
+A list that can use globbing of files to lint on top of what is found in `src`.
 
 ## Theme Core Events
 
 This is only info for other Theme Core plugin developers.
 
-### on `'reload'`
+### emit `'reload'`
 
-When a `'reload'` event is emmitted, Browser Sync fires the `reload()` method.
-
-#### `files`
-
-Type: `String | Array<String>` Default: `[]`
-
-Files to reload/inject.
+This event is emmited when files are done compiling. The first paramater is a String of the files changed.
