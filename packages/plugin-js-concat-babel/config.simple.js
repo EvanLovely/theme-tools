@@ -5,5 +5,5 @@ module.exports = {
   dest: 'dest/',
   destName: 'all.js',
   uglify: true,
-  babel: true
+  babel: true,
 };

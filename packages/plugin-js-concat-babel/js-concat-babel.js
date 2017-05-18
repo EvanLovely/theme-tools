@@ -27,11 +27,11 @@ module.exports = (userConfig) => {
   function fix() {
     return gulp.src([].concat(config.src, config.eslint.extraSrc))
     .pipe(eslint({
-      fix: true
+      fix: true,
     }))
     .pipe(gulp.dest(file => file.base));
   }
-  fix.description = 'Fix the ESlint errors that can be fixed.'
+  fix.description = 'Fix the ESlint errors that can be fixed.';
 
   function validateJs() {
     return validate()
@@ -44,7 +44,7 @@ module.exports = (userConfig) => {
     gulp.src(config.src)
       .pipe(sourcemaps.init())
       .pipe(gulpif(config.babel, babel({
-        presets: [path.resolve(__dirname, 'node_modules', 'babel-preset-es2015')]
+        presets: [path.resolve(__dirname, 'node_modules', 'babel-preset-es2015')],
       })))
       .pipe(concat(config.destName))
       .pipe(gulpif(config.uglify, uglify()))
