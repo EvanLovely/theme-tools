@@ -27,15 +27,19 @@ const jsTasks = require('@theme-tools/plugin-js-concat-babel')({
   dest: 'assets'
 });
 
-gulp.task('css', cssTasks.compile);
-gulp.task('pl', patternLabTasks.compile);
 gulp.task('validate:js', jsTasks.validate);
 gulp.task('js', jsTasks.compile);
+gulp.task('clean:js', jsTasks.clean);
 gulp.task('watch:js', jsTasks.watch);
+
+gulp.task('css', cssTasks.compile);
+gulp.task('pl', patternLabTasks.compile);
 
 gulp.task('compile', gulp.series([
   cssTasks.clean,
+  jsTasks.clean,
   gulp.parallel([
+    'js',
     'css',
     'pl'
   ])
@@ -46,6 +50,7 @@ gulp.task('default', gulp.series([
   gulp.parallel([
     patternLabTasks.watch,
     cssTasks.watch,
+    jsTasks.watch,
     browserSyncTasks.serve
   ])
 ]));

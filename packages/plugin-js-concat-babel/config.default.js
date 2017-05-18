@@ -3,14 +3,12 @@ module.exports = {
     'js/**/*.js',
   ],
   dest: 'dest/',
-  destName: 'all.min.js',
+  destName: 'all.js',
   sourceMapEmbed: false,
-  uglify: false,
-  babel: false,
+  uglify: true,
+  babel: true,
   eslint: {
     enabled: true,
-    extraSrc: [
-      'gulpfile.js',
-    ],
+    extraSrc: [],
   },
 };

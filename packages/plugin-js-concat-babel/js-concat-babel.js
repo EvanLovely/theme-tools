@@ -31,14 +31,12 @@ module.exports = (userConfig) => {
 
   validateJs.description = 'Lint JS.';
 
-  if (config.eslint.enabled) {
-    tasks.validate = validateJs;
-  }
-
   function compileJs(done) {
     gulp.src(config.src)
       .pipe(sourcemaps.init())
-      .pipe(gulpif(config.babel, babel())) // all babel options handled in `.babelrc`
+      .pipe(gulpif(config.babel, babel({
+        presets: [path.resolve(__dirname, 'node_modules', 'babel-preset-es2015')]
+      })))
       .pipe(concat(config.destName))
       .pipe(gulpif(config.uglify, uglify()))
       .pipe(sourcemaps.write(config.sourceMapEmbed ? null : './'))
@@ -51,15 +49,11 @@ module.exports = (userConfig) => {
 
   compileJs.description = 'Transpile JS using Babel, concat and uglify.';
 
-  tasks.compile = compileJs;
-
   function watch() {
     const watchTasks = [compileJs];
     if (config.eslint.enabled) watchTasks.push(validate);
     gulp.watch([].concat(config.src, config.eslint.extraSrc), gulp.parallel(watchTasks));
   }
-
-  tasks.watch = watch;
 
   function cleanJs(done) {
     del([
@@ -68,7 +62,10 @@ module.exports = (userConfig) => {
   }
 
   cleanJs.description = 'Clean JS files';
-  tasks.clean = cleanJs;
 
+  tasks.clean = cleanJs;
+  tasks.compile = compileJs;
+  tasks.watch = watch;
+  if (config.eslint.enabled) tasks.validate = validateJs;
   return tasks;
 };
