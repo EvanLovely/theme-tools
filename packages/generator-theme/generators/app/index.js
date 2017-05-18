@@ -23,7 +23,7 @@ module.exports = class extends Generator {
         validate: (answer) => {
           if (answer.length === 0) return false;
           return true;
-        }
+        },
       },
       {
         name: 'themeType',
@@ -33,18 +33,18 @@ module.exports = class extends Generator {
           {
             name: 'Drupal 8',
             value: 'drupal8',
-            default: true
+            default: true,
           },
           {
             name: 'None',
-            value: false
-          }
-        ]
+            value: false,
+          },
+        ],
       },
       {
         name: 'useGulp',
         message: 'Would you like to use Gulp?',
-        type: 'confirm'
+        type: 'confirm',
       },
       {
         name: 'css',
@@ -55,25 +55,25 @@ module.exports = class extends Generator {
           {
             name: 'Sass',
             value: '@theme-tools/plugin-sass',
-            default: true
+            default: true,
           },
           {
             name: 'None',
-            value: false
-          }
-        ]
+            value: false,
+          },
+        ],
       },
       {
         name: 'browserSync',
         message: 'Would you like to use Browser Sync?',
         type: 'confirm',
-        when: answers => answers.useGulp
+        when: answers => answers.useGulp,
       },
       {
         name: 'usePatternLab',
         message: 'Would you like to use Pattern Lab?',
-        type: 'confirm'
-      }
+        type: 'confirm',
+      },
     ];
 
     return this.prompt(prompts).then((props) => {
@@ -96,7 +96,7 @@ module.exports = class extends Generator {
       private: true, // prevents `npm publish`
       scripts: {},
       dependencies: {},
-      devDependencies: {}
+      devDependencies: {},
     };
 
     if (this.props.themeType === 'drupal8') {
@@ -108,11 +108,11 @@ module.exports = class extends Generator {
         'base theme': 'stable',
         core: '8.x',
         libraries: [
-          `${this.props.themeName}/core`
+          `${this.props.themeName}/core`,
         ],
         regions: {
-          content: 'Content'
-        }
+          content: 'Content',
+        },
       };
 
       // theme.libraries.yml
@@ -121,11 +121,11 @@ module.exports = class extends Generator {
           css: {
             theme: {
               'dest/style.css': {
-                preprocess: true
-              }
-            }
-          }
-        }
+                preprocess: true,
+              },
+            },
+          },
+        },
       };
 
       this.fs.write(this.destinationPath(`${this.props.themeName}.info.yml`), yaml.safeDump(themeInfo));
@@ -162,7 +162,7 @@ module.exports = class extends Generator {
       this.spawnCommand('composer', [
         'create-project',
         'drupal-pattern-lab/edition-twig-standard',
-        'pattern-lab'
+        'pattern-lab',
       ]);
     }
   //   this.npmInstall();

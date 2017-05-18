@@ -11,7 +11,7 @@ chai.use(require('chai-fs'));
 describe('Utils', () => {
   const a = {
     title: 'Hi',
-    tags: ['a', 'b']
+    tags: ['a', 'b'],
   };
   const b = `
 title: Hi

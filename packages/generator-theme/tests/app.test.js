@@ -13,16 +13,16 @@ describe('generator-theme:app', () => {
         themeName: 'mytheme',
         usePatternLab: false,
         useGulp: false,
-        themeType: false
+        themeType: false,
       }));
 
     it('creates basic theme', () => {
       assert.file([
-        'package.json'
+        'package.json',
       ]);
       assert.noFile([
         'gulpfile.js',
-        'mytheme.info.yml'
+        'mytheme.info.yml',
       ]);
     });
   });
@@ -33,17 +33,17 @@ describe('generator-theme:app', () => {
         themeName: 'myothertheme',
         usePatternLab: false,
         useGulp: false,
-        themeType: 'drupal8'
+        themeType: 'drupal8',
       }));
 
     it('creates basic theme', () => {
       assert.file([
         'myothertheme.info.yml',
         'myothertheme.libraries.yml',
-        'package.json'
+        'package.json',
       ]);
       assert.noFile([
-        'gulpfile.js'
+        'gulpfile.js',
       ]);
     });
   });
@@ -54,17 +54,17 @@ describe('generator-theme:app', () => {
         themeName: 'mytheme',
         usePatternLab: false,
         useGulp: true,
-        themeType: false
+        themeType: false,
       }));
 
     it('creates basic theme with gulpfile.js', () => {
       assert.file([
         'package.json',
-        'gulpfile.js'
+        'gulpfile.js',
       ]);
       assert.noFile([
         'mytheme.info.yml',
-        'mytheme.libraries.yml'
+        'mytheme.libraries.yml',
       ]);
     });
   });
@@ -76,7 +76,7 @@ describe('generator-theme:app', () => {
         themeName: 'mytheme',
         usePatternLab: false,
         useGulp: true,
-        themeType: 'drupal8'
+        themeType: 'drupal8',
       }));
 
     it('creates lots of tiles', () => {
@@ -84,7 +84,7 @@ describe('generator-theme:app', () => {
         'package.json',
         'mytheme.info.yml',
         'mytheme.libraries.yml',
-        'gulpfile.js'
+        'gulpfile.js',
       ]);
       assert.noFile([
       ]);
