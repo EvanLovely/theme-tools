@@ -1,6 +1,6 @@
 {
   "name": "@theme-tools/plugin-jekyll",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Jekyll plugin for Theme Tools",
   "main": "jekyll.js",
   "scripts": {
@@ -18,6 +18,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@theme-tools/core": "^0.3.0"
+    "@theme-tools/core": "^0.3.1"
   }
 }
