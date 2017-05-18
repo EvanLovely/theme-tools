@@ -124,6 +124,13 @@ Type: `Array<String>` Default: `[]`
 
 A list that can use globbing of files to lint on top of what is found in `src`.
 
+## Setup Details
+
+### Setting up ESlint
+
+1. Create your [configuration file](http://eslint.org/docs/user-guide/configuring) (i.e. `.eslintrc`)
+
+
 ## Theme Core Events
 
 This is only info for other Theme Core plugin developers.
