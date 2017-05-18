@@ -1,0 +1,23 @@
+{
+  "name": "@theme-tools/plugin-jekyll",
+  "version": "0.3.0",
+  "description": "Jekyll plugin for Theme Tools",
+  "main": "jekyll.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jekyll",
+    "theme-tools-plugin",
+    "theme-tools"
+  ],
+  "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
+  "license": "MIT",
+  "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/plugin-jekyll",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@theme-tools/core": "^0.3.0"
+  }
+}
