@@ -25,10 +25,10 @@ npm install @theme-tools/plugin-sass --save
 
 ## Configure
 
-The config that is passed in is merged with [`config.default.js`](config.default.js). We suggest starting with [`config.simple.js`](config.simple.js) to get started:
+The config that is passed in is merged with [`config.default.js`](config.default.js). 
 
 ```bash
-cp node_modules/@theme-tools/plugin-sass/config.simple.js config.sass.js
+cp node_modules/@theme-tools/plugin-sass/config.default.js config.sass.js
 ```
 
 See [details on configuration](#configuration) below.
