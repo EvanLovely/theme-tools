@@ -1,0 +1,28 @@
+{
+  "name": "@theme-tools/plugin-twig-js",
+  "version": "0.3.1",
+  "description": "Theme Tools plugin for using Twig Js templating.",
+  "main": "twig.js",
+  "scripts": {
+    "test": "mocha tests/*.test.js"
+  },
+  "keywords": [
+    "theme-tools",
+    "theme-tools-plugin"
+  ],
+  "author": "JoeKarasek <jozin.joe@gmail.com> (http://www.joekarasek.com)",
+  "license": "MIT",
+  "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/plugin-twig-js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@theme-tools/core": "^0.3.1",
+    "del": "^2.2.2",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-data": "^1.2.1",
+    "gulp-htmlhint": "^0.3.1",
+    "gulp-if": "^2.0.2",
+    "gulp-twig": "^0.7.0"
+  }
+}
