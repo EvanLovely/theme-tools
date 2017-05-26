@@ -3,15 +3,16 @@
 const gulp = require('gulp');
 const core = require('@theme-tools/core');
 const defaultConfig = require('./config.default');
+const fs = require('fs');
 
 // const htmlhint = require('gulp-htmlhint');
 // const data = require('gulp-data');
-// const del = require('del');
+const del = require('del');
 // const path = require('path');
-// const join = require('path').join;
+const join = require('path').join;
 const twig = require('gulp-twig');
 const gulpif = require('gulp-if');
-const _ = require('lodash');
+
 
 module.exports = (userConfig) => {
   const config = core.utils.merge({}, defaultConfig, userConfig);
@@ -26,15 +27,15 @@ module.exports = (userConfig) => {
    * @param done
    */
   function compileHtml(done) {
-    var base = config.twig.baseDir;
-    var data = {};
-    config.html.twig.dataSrc.forEach(function(filePath) {
-      _.merge(data, JSON.parse(fs.readFileSync(filePath)));
+    const base = config.componentBaseDir;
+    const data = {};
+    config.dataSources.forEach(function mergeJson(filePath) {
+      core.utils.merge(data, JSON.parse(fs.readFileSync(filePath)));
     });
     return gulp.src(config.sources)
-            .pipe(gulpif(config.twig.enabled, twig({ base, data })))
-            .pipe(gulp.dest(config.dest))
-            .on('end', () => { done(); });
+        .pipe(gulpif(config.enabled, twig({ base, data })))
+        .pipe(gulp.dest(config.dest))
+        .on('end', () => { done(); });
   }
   compileHtml.description = 'Move html from source to build and run Swig if enabled';
   // gulp.task('compile:html', done => compileHtml(done));
@@ -66,16 +67,16 @@ module.exports = (userConfig) => {
    */
   function cleanHtml(done) {
     del(
-        [
-          join(config.dest, '*.html'),
-        ],
-        { force: true }
+      [
+        join(config.dest, '*.html'),
+      ],
+      { force: true }
     )
-        .then(() => { done(); });
+    .then(() => { done(); });
   }
   cleanHtml.description = 'Clean built html';
   tasks.clean = cleanHtml;
-  
+
 
   /**
    * Create gulp watch for twig.js templates
@@ -87,7 +88,7 @@ module.exports = (userConfig) => {
   function watchHtml() {
     const watchDirectories = config.sources;
     if (config.twig.enabled) {
-      watchDirectories.push(config.twig.baseDir + '**/*.twig');
+      watchDirectories.push(config.twig.baseDir.concat('**/*.twig'));
     }
     // @TODO add validate
     return gulp.watch(watchDirectories, gulp.series(compileHtml));
