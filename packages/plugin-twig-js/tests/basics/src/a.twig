@@ -1,2 +1,13 @@
 {% set text = 'Hello World' %}
 <h1>{{ text }}</h1>
+
+<h2>Here's a list generated from data.json with twig.js for each</h2>
+<ul>
+    {% for item in aList %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+
+<h3>A number: {{ aNumber }}</h3>
+
+<h3>A string: {{ aString }}</h3>

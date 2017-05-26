@@ -11,6 +11,7 @@ const defaultConfig = require('./config.default');
 // const join = require('path').join;
 const twig = require('gulp-twig');
 const gulpif = require('gulp-if');
+const _ = require('lodash');
 
 module.exports = (userConfig) => {
   const config = core.utils.merge({}, defaultConfig, userConfig);
@@ -25,10 +26,13 @@ module.exports = (userConfig) => {
    * @param done
    */
   function compileHtml(done) {
+    var base = config.twig.baseDir;
+    var data = {};
+    config.html.twig.dataSrc.forEach(function(filePath) {
+      _.merge(data, JSON.parse(fs.readFileSync(filePath)));
+    });
     return gulp.src(config.sources)
-            .pipe(gulpif(config.twig.enabled, twig({
-              base: config.twig.baseDir,
-            })))
+            .pipe(gulpif(config.twig.enabled, twig({ base, data })))
             .pipe(gulp.dest(config.dest))
             .on('end', () => { done(); });
   }
@@ -55,42 +59,41 @@ module.exports = (userConfig) => {
   //   tasks.validate.push('validate:html');
   // }
   //
-  // /**
-  //  * Removes *.css and *.css.map from the the dest
-  //  * Adds 'clean:css' to tasks.clean
-  //  * @param done
-  //  */
-  // function cleanHtml(done) {
-  //   del(
-  //       [
-  //         join(config.dest, '*.html'),
-  //       ],
-  //       { force: true }
-  //   )
-  //       .then(() => { done(); });
-  // }
-  // cleanHtml.description = 'Clean built html';
-  // gulp.task('clean:html', cleanHtml);
-  // tasks.clean.push('clean:html');
-  //
-  //
-  // /**
-  //  * Create gulp watch for twig.js templates
-  //  * On file change, triggers the following tasks
-  //  * 1. 'compile:html'
-  //  * 2. 'validate:html' if enabled
-  //  * Adds 'watch:html' to tasks.watch
-  //  */
-  // function watchHtml() {
-  //   const watchDirectories = config.sources;
-  //   if (config.twig.enabled) {
-  //     watchDirectories.push(config.twig.baseDir + '**/*.twig');
-  //   }
-  //   return gulp.watch(watchDirectories, gulp.series('compile:html', 'validate:html'));
-  // }
-  // watchHtml.description = 'Watch Html';
-  // gulp.task('watch:html', watchHtml);
-  // tasks.watch.push('watch:html');
+  /**
+   * Removes *.css and *.css.map from the the dest
+   * Adds 'clean:css' to tasks.clean
+   * @param done
+   */
+  function cleanHtml(done) {
+    del(
+        [
+          join(config.dest, '*.html'),
+        ],
+        { force: true }
+    )
+        .then(() => { done(); });
+  }
+  cleanHtml.description = 'Clean built html';
+  tasks.clean = cleanHtml;
+  
+
+  /**
+   * Create gulp watch for twig.js templates
+   * On file change, triggers the following tasks
+   * 1. 'compile:html'
+   * 2. 'validate:html' if enabled
+   * Adds 'watch:html' to tasks.watch
+   */
+  function watchHtml() {
+    const watchDirectories = config.sources;
+    if (config.twig.enabled) {
+      watchDirectories.push(config.twig.baseDir + '**/*.twig');
+    }
+    // @TODO add validate
+    return gulp.watch(watchDirectories, gulp.series(compileHtml));
+  }
+  watchHtml.description = 'Watch Html';
+  tasks.watch = watchHtml;
 
   return tasks;
 };

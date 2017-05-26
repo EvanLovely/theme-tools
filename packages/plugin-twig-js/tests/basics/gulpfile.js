@@ -11,7 +11,7 @@ const config = {
 const twigTasks = require('../../twig')(config);
 
 gulp.task('twig', twigTasks.compile);
-// gulp.task('watch:css', cssTasks.watch);
+gulp.task('watch', twigTasks.watch);
 // gulp.task('clean:css', cssTasks.clean);
 
 gulp.task('compile', gulp.series([

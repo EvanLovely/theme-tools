@@ -21,10 +21,16 @@ gulp.task('twig', twigTasks.compile);
 gulp.task('sass', sassTasks.compile);
 
 gulp.task('default', gulp.series([
-  sassTasks.compile,
+  // 1. Clean
+  twigTasks.clean,
+  sassTasks.clean,
+  // 2. Compile
   twigTasks.compile,
+  sassTasks.compile,
+  // 3. Watch
   gulp.parallel([
     sassTasks.watch,
+    twigTasks.watch,
     browserSyncTasks.serve,
   ]),
 ]));
