@@ -10,7 +10,7 @@ const config = {
   dataSources: [
     'src/data.json',
     'src/extra.json',
-  ]
+  ],
 };
 const twigTasks = require('../../twig')(config);
 
