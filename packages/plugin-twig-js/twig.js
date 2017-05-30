@@ -42,7 +42,7 @@ module.exports = (userConfig) => {
         .on('end', () => { done(); });
     });
   }
-  compileHtml.description = 'Move html from source to build and run Swig if enabled';
+  compileHtml.description = 'Compile Twig templates to HTML using twig.js';
   // gulp.task('compile:html', done => compileHtml(done));
   // tasks.compile.push('compile:html');
   tasks.compile = compileHtml;
