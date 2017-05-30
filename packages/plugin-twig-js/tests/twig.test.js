@@ -21,7 +21,26 @@ describe('Twig Basics', function () {
       console.error('Could not run gulp command beforehand.', e);
     }
   });
-  it('Compiles Twig to HTML with basic data', () => {
+  it('Compiles Twig to HTML', () => {
     assert.directoryDeepEqual(join(__dirname, './basics/build'), join(__dirname, './basics/expected'), `Directories do not match. Gulp output below: \n\n${output}`);
+  });
+});
+
+describe('Twig Data', function () {
+  this.timeout(5000);
+  let output = '';
+  before(() => {
+    try {
+      output = execSync('gulp compile', {
+        cwd: join(__dirname, 'data'),
+        encoding: 'utf8',
+      });
+      // console.log(output);
+    } catch (e) {
+      console.error('Could not run gulp command beforehand.', e);
+    }
+  });
+  it('Compiles Twig to HTML with basic data', () => {
+    assert.directoryDeepEqual(join(__dirname, './data/build'), join(__dirname, './data/expected'), `Directories do not match. Gulp output below: \n\n${output}`);
   });
 });
