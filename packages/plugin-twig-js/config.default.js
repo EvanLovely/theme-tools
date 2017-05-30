@@ -6,7 +6,5 @@ module.exports = {
   dest: 'build/',
   lint: true,
   componentBaseDir: 'src/templates/',
-  dataSources: [
-    'src/data.json',
-  ],
+  dataSources: [],
 };
