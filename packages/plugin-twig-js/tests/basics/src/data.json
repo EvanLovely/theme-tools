@@ -1,0 +1,9 @@
+{
+  "aList": [
+    "one",
+    "two",
+    "three"
+  ],
+  "aString": "Hello World",
+  "aNumber": 42
+}
