@@ -1,6 +1,6 @@
 {
   "name": "@theme-tools/plugin-sass",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Theme Tools plugin for Sass compiling using libsass and Gulp.",
   "main": "sass.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@theme-tools/core": "^0.3.1",
+    "@theme-tools/core": "^0.4.0",
     "autoprefixer": "^6.7.7",
     "del": "^2.2.2",
     "gulp": "gulpjs/gulp#4.0",
