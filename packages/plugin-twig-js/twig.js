@@ -28,14 +28,19 @@ module.exports = (userConfig) => {
    */
   function compileHtml(done) {
     const base = config.componentBaseDir;
-    const data = {};
-    config.dataSources.forEach(function mergeJson(filePath) {
-      core.utils.merge(data, JSON.parse(fs.readFileSync(filePath)));
-    });
-    return gulp.src(config.sources)
+    Promise.all(config.dataSources.map(filePath => new Promise((resolve, reject) => {
+      fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) reject(err);
+        resolve(JSON.parse(data));
+      });
+    }))).then((values) => {
+      const data = {};
+      values.forEach(value => core.utils.merge(data, value));
+      gulp.src(config.sources)
         .pipe(gulpif(config.enabled, twig({ base, data })))
         .pipe(gulp.dest(config.dest))
         .on('end', () => { done(); });
+    });
   }
   compileHtml.description = 'Move html from source to build and run Swig if enabled';
   // gulp.task('compile:html', done => compileHtml(done));
@@ -72,7 +77,7 @@ module.exports = (userConfig) => {
       ],
       { force: true }
     )
-    .then(() => { done(); });
+      .then(() => { done(); });
   }
   cleanHtml.description = 'Clean built html';
   tasks.clean = cleanHtml;
