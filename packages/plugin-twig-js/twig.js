@@ -11,8 +11,6 @@ const del = require('del');
 // const path = require('path');
 const join = require('path').join;
 const twig = require('gulp-twig');
-const gulpif = require('gulp-if');
-
 
 module.exports = (userConfig) => {
   const config = core.utils.merge({}, defaultConfig, userConfig);
@@ -23,11 +21,9 @@ module.exports = (userConfig) => {
    * '.twig' and '.html' files listed in config.sources are piped through twig
    * data can be match for each template by matching the file with '*.data.json' file
    * for example: 'index.twig' and 'index.data.json'
-   * Adds 'compile:html' to tasks.compile
    * @param done
    */
   function compileHtml(done) {
-    const base = config.componentBaseDir;
     Promise.all(config.dataSources.map(filePath => new Promise((resolve, reject) => {
       fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) reject(err);
@@ -36,8 +32,12 @@ module.exports = (userConfig) => {
     }))).then((values) => {
       const data = {};
       values.forEach(value => core.utils.merge(data, value));
+
       gulp.src(config.sources)
-        .pipe(gulpif(config.enabled, twig({ base, data })))
+        .pipe(twig({
+          base: config.componentBaseDir,
+          data,
+        }))
         .pipe(gulp.dest(config.dest))
         .on('end', () => { done(); });
     });
