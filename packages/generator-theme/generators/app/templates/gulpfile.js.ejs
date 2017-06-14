@@ -9,7 +9,7 @@ const browserSyncTasks = require('@theme-tools/plugin-browser-sync')({});
 <% if (usePatternLab) { -%>
 const patternLabTasks = require('@theme-tools/plugin-pattern-lab-php')({});
 <% } -%>
-<!---->
+
 <% if (css === '@theme-tools/plugin-sass') { -%>
 gulp.task('css', cssTasks.compile);
 <% } -%>

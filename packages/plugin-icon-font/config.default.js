@@ -11,11 +11,11 @@ module.exports = {
     sets: [
       {
         src: 'images/icons/templates/_icons-settings.scss',
-        dest: 'source/_patterns/01-atoms/images/',
+        dest: 'source/_patterns/01-atoms/images/_icons-settings.scss',
       },
       {
         src: 'images/icons/templates/icons.twig',
-        dest: 'source/_patterns/01-atoms/images/',
+        dest: 'source/_patterns/01-atoms/images/icons.twig',
       },
     ],
   },

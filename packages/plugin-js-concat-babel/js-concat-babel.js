@@ -43,9 +43,7 @@ module.exports = (userConfig) => {
   function compileJs(done) {
     gulp.src(config.src)
       .pipe(sourcemaps.init())
-      .pipe(gulpif(config.babel, babel({
-        presets: [path.resolve(__dirname, 'node_modules', 'babel-preset-es2015')],
-      })))
+      .pipe(gulpif(config.babel, babel(config.babelConfig)))
       .pipe(concat(config.destName))
       .pipe(gulpif(config.uglify, uglify()))
       .pipe(sourcemaps.write(config.sourceMapEmbed ? null : './'))

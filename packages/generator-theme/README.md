@@ -1,4 +1,4 @@
-# generator-theme [![NPM version][npm-image]][npm-url]
+# generator-theme
 
 > Scaffold out a theme
 

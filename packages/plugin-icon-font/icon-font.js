@@ -89,9 +89,8 @@ module.exports = (userConfig) => {
 
   function watchIcons() {
     const src = [config.src];
-    if (config.templates.enabled) {
-      src.push(config.templates.css.src);
-      src.push(config.templates.demo.src);
+    if (config.templates.enabled && config.templates.sets.length) {
+      config.templates.sets.forEach(set => src.push(set.src));
     }
     return gulp.watch(src, icons);
   }
@@ -101,7 +100,7 @@ module.exports = (userConfig) => {
   function cleanIcons(done) {
     const toClean = [path.join(config.dest, `${config.iconName}.*`)];
 
-    if (config.templates.enabled) {
+    if (config.templates.enabled && config.templates.sets.length) {
       config.templates.sets.forEach(set => toClean.push(set.dest));
     }
 

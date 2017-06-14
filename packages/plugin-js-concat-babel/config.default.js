@@ -7,6 +7,7 @@ module.exports = {
   sourceMapEmbed: false,
   uglify: true,
   babel: true,
+  babelConfig: {}, // can contain `presets`, `plugins`, etc.
   eslint: {
     enabled: true,
     extraSrc: [],

@@ -24,7 +24,10 @@ const jsTasks = require('@theme-tools/plugin-js-concat-babel')({
   src: [
     'js/**/*.js'
   ],
-  dest: 'assets'
+  dest: 'assets',
+  babelConfig: {
+    presets: ['babel-preset-es2015'].map(require.resolve)
+  }
 });
 
 gulp.task('validate:js', jsTasks.validate);

@@ -111,7 +111,19 @@ Should the file be Uglified?
 
 Type: `Boolean` Default: `true`
 
-Should Babel transpile the JS using the preset `babel-preset-es2015`?
+Should Babel transpile the JS using the `babelConfig`?
+
+### `babelConfig`
+
+Type: `Object` Default: `{}`
+
+Configuration for Babel, basically the contents of `.babelrc`. This is where you'd add presets or plugins and would want to do it like this to avoid weird bugs:
+
+```js
+babelConfig: {
+  presets: ['babel-preset-es2015'].map(require.resolve),
+},
+```
 
 ### `eslint`
 
@@ -131,10 +143,20 @@ A list that can use globbing of files to lint on top of what is found in `src`.
 
 ## Setup Details
 
+### Setting up basic Babel
+
+1. Run `npm install --save babel-preset-es2015`
+2. Add this to your config:
+
+```js
+babelConfig: {
+  presets: ['babel-preset-es2015'].map(require.resolve),
+},
+```
+
 ### Setting up ESlint
 
 1. Create your [configuration file](http://eslint.org/docs/user-guide/configuring) (i.e. `.eslintrc`)
-
 
 ## Theme Core Events
 
