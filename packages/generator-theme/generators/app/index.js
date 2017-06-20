@@ -95,7 +95,11 @@ module.exports = class extends Generator {
       description: `${this.props.themeName} theme`,
       version: '0.1.0',
       private: true, // prevents `npm publish`
-      scripts: {},
+      scripts: {
+        start: 'gulp',
+        compile: 'NODE_ENV=production gulp compile',
+        test: 'gulp validate',
+      },
       dependencies: {},
       devDependencies: {},
     };

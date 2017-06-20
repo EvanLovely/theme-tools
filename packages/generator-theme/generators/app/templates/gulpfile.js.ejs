@@ -19,3 +19,26 @@ gulp.task('serve', browserSyncTasks.serve);
 <% if (usePatternLab) { -%>
 gulp.task('pl', patternLabTasks.compile);
 <% } %>
+
+// Below are the basic structure of tasks to get you started. Much more are available for each plugin. This may take a little bit of tweaking to get to work like you want, but should be very close.
+
+gulp.task('clean', gulp.parallel([
+  <% if (css === '@theme-tools/plugin-sass') { %>cssTasks.clean,<% } %>
+]));
+
+gulp.task('compile', gulp.series([
+  'clean',
+  gulp.parallel([
+    <% if (css === '@theme-tools/plugin-sass') { %>cssTasks.compile,<% } %>
+    <% if (usePatternLab) { %>patternLabTasks.compile,<% } %>
+  ]),
+]));
+
+gulp.task('default', gulp.series([
+  'compile',
+  gulp.parallel([
+    <% if (css === '@theme-tools/plugin-sass') { %>cssTasks.watch,<% } %>
+    <% if (usePatternLab) { %>patternLabTasks.watch,<% } %>
+    <% if (browserSync) { %>browserSyncTasks.serve,<% } %>
+  ]),
+]));
