@@ -71,6 +71,11 @@ module.exports = class extends Generator {
         message: 'Would you like to use Pattern Lab?',
         type: 'confirm',
       },
+      {
+        name: 'useYarn',
+        message: 'Would you like to use yarn instead of npm?',
+        type: 'confirm',
+      },
     ];
 
     return this.prompt(prompts).then((props) => {
@@ -136,7 +141,6 @@ module.exports = class extends Generator {
       );
     }
 
-
     this.fs.writeJSON(this.destinationPath('package.json'), packageJson);
   }
 
@@ -159,6 +163,12 @@ module.exports = class extends Generator {
     if (this.props.browserSync) deps.push('@theme-tools/plugin-browser-sync');
     if (this.props.usePatternLab) deps.push('@theme-tools/plugin-pattern-lab-php');
 
-    if (deps) this.npmInstall(deps, { save: true, loglevel: 'silent' });
+    if (deps) {
+      if (this.props.useYarn) {
+        this.yarnInstall(deps);
+      } else {
+        this.npmInstall(deps, { save: true, loglevel: 'silent' });
+      }
+    }
   }
 };
