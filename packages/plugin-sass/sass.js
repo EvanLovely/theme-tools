@@ -17,7 +17,6 @@ const join = require('path').join;
 const del = require('del');
 const core = require('@theme-tools/core');
 const defaultConfig = require('./config.default');
-// const debug = require('gulp-debug');
 
 module.exports = (userConfig) => {
   const config = core.utils.merge({}, defaultConfig, userConfig);
