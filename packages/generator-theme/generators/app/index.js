@@ -4,9 +4,6 @@ const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 const yaml = require('js-yaml');
-const pkg = require('../../package.json');
-
-const repoVer = pkg.version;
 
 module.exports = class extends Generator {
   prompting() {
@@ -79,7 +76,6 @@ module.exports = class extends Generator {
     return this.prompt(prompts).then((props) => {
       // To access props later use this.props.someAnswer;
       this.props = props;
-      this.props.repoVer = repoVer;
     });
   }
 
@@ -133,7 +129,6 @@ module.exports = class extends Generator {
     }
 
     if (this.props.useGulp) {
-      packageJson.dependencies.gulp = 'gulpjs/gulp#4.0';
       this.fs.copyTpl(
         this.templatePath('gulpfile.js.ejs'),
         this.destinationPath('gulpfile.js'),
@@ -141,22 +136,12 @@ module.exports = class extends Generator {
       );
     }
 
-    if (this.props.css) {
-      packageJson.dependencies[this.props.css] = `^${this.props.repoVer}`;
-    }
-
-    if (this.props.browserSync) {
-      packageJson.dependencies['@theme-tools/plugin-browser-sync'] = `^${this.props.repoVer}`;
-    }
-
-    if (this.props.usePatternLab) {
-      packageJson.dependencies['@theme-tools/plugin-pattern-lab-php'] = `^${this.props.repoVer}`;
-    }
 
     this.fs.writeJSON(this.destinationPath('package.json'), packageJson);
   }
 
   install() {
+    // Pattern Lab
     if (this.props.usePatternLab) {
       console.log('Installing Pattern Lab; please be patient...');
       this.spawnCommand('composer', [
@@ -165,6 +150,15 @@ module.exports = class extends Generator {
         'pattern-lab',
       ]);
     }
-  //   this.npmInstall();
+
+    // npm dependencies
+    const deps = [];
+
+    if (this.props.useGulp) deps.push('gulpjs/gulp#4.0');
+    if (this.props.css) deps.push(this.props.css);
+    if (this.props.browserSync) deps.push('@theme-tools/plugin-browser-sync');
+    if (this.props.usePatternLab) deps.push('@theme-tools/plugin-pattern-lab-php');
+
+    if (deps) this.npmInstall(deps, { save: true, loglevel: 'silent' });
   }
 };
