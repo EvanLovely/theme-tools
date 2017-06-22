@@ -84,8 +84,8 @@ module.exports = (userConfig) => {
       done();
     }
   }
-
   icons.description = 'Build font icons from SVG files';
+  icons.displayName = 'icons:compile';
 
   function watchIcons() {
     const src = [config.src];
@@ -94,8 +94,8 @@ module.exports = (userConfig) => {
     }
     return gulp.watch(src, icons);
   }
-
   watchIcons.description = 'Watch icons';
+  watchIcons.displayName = 'icons:watch';
 
   function cleanIcons(done) {
     const toClean = [path.join(config.dest, `${config.iconName}.*`)];
@@ -106,8 +106,8 @@ module.exports = (userConfig) => {
 
     del(toClean, { force: true }).then(() => done());
   }
-
   cleanIcons.description = 'Delete compiled icon files and template files';
+  cleanIcons.displayName = 'icons:clean';
 
   return {
     compile: icons,

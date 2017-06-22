@@ -58,6 +58,7 @@ module.exports = (userConfig) => {
     return browserSync.init(options);
   }
   serve.description = 'Create a local server using BrowserSync';
+  serve.displayName = 'browser-sync:serve';
 
   /**
    * Reload BrowserSync
@@ -66,6 +67,8 @@ module.exports = (userConfig) => {
   function reload(files) {
     browserSync.reload(files);
   }
+  reload.description = 'Reload BrowserSync';
+  reload.displayName = 'browser-sync:reload';
 
   core.events.on('reload', reload);
 

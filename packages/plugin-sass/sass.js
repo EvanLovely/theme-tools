@@ -64,6 +64,7 @@ module.exports = (userConfig) => {
   }
 
   compile.description = 'Compile Scss to CSS using Libsass with Autoprefixer and SourceMaps';
+  compile.displayName = 'sass:compile';
 
   tasks.compile = compile;
 
@@ -75,6 +76,7 @@ module.exports = (userConfig) => {
   }
 
   clean.description = 'Clean compiled CSS';
+  clean.displayName = 'sass:clean';
 
   tasks.clean = clean;
 
@@ -98,6 +100,7 @@ module.exports = (userConfig) => {
   }
 
   validate.description = 'Lint Scss files';
+  validate.displayName = 'sass:validate';
 
   if (config.lint.enabled) tasks.validate = validate;
 
@@ -115,6 +118,7 @@ module.exports = (userConfig) => {
   }
 
   docs.description = 'Build CSS docs using SassDoc';
+  docs.displayName = 'sass:docs';
 
   if (config.sassdoc.enabled) tasks.docs = docs;
 
@@ -133,6 +137,7 @@ module.exports = (userConfig) => {
   }
 
   watch.description = 'Watch Scss';
+  watch.displayName = 'sass:watch';
 
   tasks.watch = watch;
 

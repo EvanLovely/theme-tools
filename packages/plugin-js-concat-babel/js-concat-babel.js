@@ -32,13 +32,16 @@ module.exports = (userConfig) => {
     .pipe(gulp.dest(file => file.base));
   }
   fix.description = 'Fix the ESlint errors that can be fixed.';
+  fix.displayName = 'js:fix';
+  if (config.eslint.enabled) tasks.fix = fix;
 
   function validateJs() {
     return validate()
       .pipe(eslint.failAfterError());
   }
-
   validateJs.description = 'Lint JS.';
+  validateJs.displayName = 'js:validate';
+  if (config.eslint.enabled) tasks.validate = validateJs;
 
   function compileJs(done) {
     gulp.src(config.src)
@@ -53,27 +56,27 @@ module.exports = (userConfig) => {
         done();
       });
   }
-
   compileJs.description = 'Transpile JS using Babel, concat and uglify.';
+  compileJs.displayName = 'js:compile';
+  tasks.compile = compileJs;
 
   function watch() {
     const watchTasks = [compileJs];
     if (config.eslint.enabled) watchTasks.push(validate);
     gulp.watch([].concat(config.src, config.eslint.extraSrc), gulp.parallel(watchTasks));
   }
+  watch.description = 'Watch JS';
+  watch.displayName = 'js:watch';
+  tasks.watch = watch;
 
   function cleanJs(done) {
     del([
       path.join(config.dest, '*.{js,js.map}'),
     ], { force: true }).then(() => done());
   }
-
   cleanJs.description = 'Clean JS files';
-
+  cleanJs.displayName = 'js:clean';
   tasks.clean = cleanJs;
-  tasks.compile = compileJs;
-  tasks.watch = watch;
-  if (config.eslint.enabled) tasks.validate = validateJs;
-  if (config.eslint.enabled) tasks.fix = fix;
+
   return tasks;
 };

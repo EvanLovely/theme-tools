@@ -29,6 +29,7 @@ module.exports = (userConfig) => {
     plBuild(done, true);
   }
   compile.description = 'Compile Pattern Lab';
+  compile.displayName = 'pattern-lab:compile';
 
   function watch() {
     const watchedExtensions = config.watchedExtensions.join(',');
@@ -39,6 +40,7 @@ module.exports = (userConfig) => {
     gulp.watch(src, done => plBuild(done, false));
   }
   watch.description = 'Watch and rebuild Pattern Lab';
+  watch.displayName = 'pattern-lab:watch';
 
   return {
     compile,
