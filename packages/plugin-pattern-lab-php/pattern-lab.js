@@ -31,13 +31,19 @@ module.exports = (userConfig) => {
   compile.description = 'Compile Pattern Lab';
   compile.displayName = 'pattern-lab:compile';
 
+  // Used by watches
+  function compileWithNoExit(done) {
+    plBuild(done, false);
+  }
+  compileWithNoExit.displayName = 'pattern-lab:compile';
+
   function watch() {
     const watchedExtensions = config.watchedExtensions.join(',');
     const plGlob = [path.normalize(`${plSource}/**/*.{${watchedExtensions}}`)];
     const src = config.extraWatches
       ? [].concat(plGlob, config.extraWatches)
       : plGlob;
-    gulp.watch(src, done => plBuild(done, false));
+    gulp.watch(src, compileWithNoExit);
   }
   watch.description = 'Watch and rebuild Pattern Lab';
   watch.displayName = 'pattern-lab:watch';
