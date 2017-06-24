@@ -19,6 +19,7 @@
   "dependencies": {
     "@theme-tools/core": "^0.4.0",
     "autoprefixer": "^6.7.7",
+    "debug": "^2.6.8",
     "del": "^2.2.2",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-cached": "^1.1.1",

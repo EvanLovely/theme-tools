@@ -15,14 +15,19 @@ const gulpif = require('gulp-if');
 const sassdoc = require('sassdoc');
 const join = require('path').join;
 const del = require('del');
+const debug = require('debug')('@theme-tools/plugin-sass');
 const core = require('@theme-tools/core');
 const defaultConfig = require('./config.default');
 
 module.exports = (userConfig) => {
   const config = core.utils.merge({}, defaultConfig, userConfig);
+  debug('Begin Config post merge');
+  debug(config);
+  debug('End Config');
   const tasks = {};
 
   function cssCompile(done, errorShouldExit) {
+    debug('Compile triggered');
     gulp.src(config.src)
         .pipe(sassGlob())
         .pipe(plumber({
@@ -69,6 +74,7 @@ module.exports = (userConfig) => {
   tasks.compile = compile;
 
   function clean(done) {
+    debug('clean triggered');
     del([
       join(config.dest, '*.{css,css.map}'),
       config.sassdoc.dest,
@@ -81,6 +87,7 @@ module.exports = (userConfig) => {
   tasks.clean = clean;
 
   function validateCss(errorShouldExit) {
+    debug('validate triggered');
     return gulp.src(config.src)
         .pipe(cached('validate:css'))
         .pipe(stylelint({
@@ -105,6 +112,7 @@ module.exports = (userConfig) => {
   if (config.lint.enabled) tasks.validate = validate;
 
   function docs(done) {
+    debug('docs triggered');
     gulp.src(config.src)
         .pipe(sassdoc({
           dest: config.sassdoc.dest,
@@ -123,6 +131,7 @@ module.exports = (userConfig) => {
   if (config.sassdoc.enabled) tasks.docs = docs;
 
   function watch() {
+    debug('watch triggered');
     const watchTasks = [cssCompile];
     if (config.lint.enabled && config.lint.onWatch) {
       watchTasks.push(validateCssWithNoExit);
@@ -133,7 +142,7 @@ module.exports = (userConfig) => {
     const src = config.extraWatches
         ? [].concat(config.src, config.extraWatches)
         : config.src;
-    return gulp.watch(src, gulp.series(watchTasks));
+    return gulp.watch(src, gulp.parallel(watchTasks));
   }
 
   watch.description = 'Watch Scss';
