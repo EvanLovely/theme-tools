@@ -1,0 +1,24 @@
+{
+  "name": "@theme-tools/plugin-webpack",
+  "version": "0.1.0",
+  "description": "Webpack plugin for Theme Tools",
+  "main": "webpack.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack",
+    "theme-tools-plugin",
+    "theme-tools"
+  ],
+  "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
+  "license": "MIT",
+  "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/plugin-webpack",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@theme-tools/core": "^0.4.0",
+    "webpack": "^3.0.0"
+  }
+}
