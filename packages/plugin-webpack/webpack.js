@@ -40,6 +40,7 @@ module.exports = (userConfig) => {
       console.log(stats.toString({
         chunks: false,  // Makes the build much quieter
         colors: true,   // Shows colors in the console
+        modules: false, // Hides built modules making output less verbose
       }));
 
       done(stats.hasErrors() ? core.utils.error('Webpack Compile Failed.') : null);
@@ -71,6 +72,7 @@ module.exports = (userConfig) => {
       console.log(stats.toString({
         chunks: false,  // Makes the build much quieter
         colors: true,   // Shows colors in the console
+        modules: false, // Hides built modules making output less verbose
       }));
 
       core.events.emit('reload');
