@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@theme-tools/core": "^0.4.0",
-    "browser-sync": "^2.18.8"
+    "browser-sync": "^2.18.8",
+    "debug": "^2.6.8"
   }
 }

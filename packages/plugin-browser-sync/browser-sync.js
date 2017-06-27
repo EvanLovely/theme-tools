@@ -2,6 +2,7 @@
 
 const core = require('@theme-tools/core');
 const browserSync = require('browser-sync').create('server');
+const debug = require('debug')('@theme-tools/plugin-browser-sync');
 const defaultConfig = require('./config.default');
 
 module.exports = (userConfig) => {
@@ -70,7 +71,10 @@ module.exports = (userConfig) => {
   reload.description = 'Reload BrowserSync';
   reload.displayName = 'browser-sync:reload';
 
-  core.events.on('reload', reload);
+  core.events.on('reload', (files) => {
+    debug('Event triggered: "reload"', files);
+    reload(files);
+  });
 
   return {
     serve,
