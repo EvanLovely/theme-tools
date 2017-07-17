@@ -1,6 +1,6 @@
 {
   "name": "jekyll",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "",
   "private": true,
   "main": "index.js",
@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@theme-tools/plugin-browser-sync": "^0.4.2",
-    "@theme-tools/plugin-jekyll": "^0.4.1",
+    "@theme-tools/plugin-browser-sync": "^0.4.3",
+    "@theme-tools/plugin-jekyll": "^0.4.2",
     "gulp": "gulpjs/gulp#4.0"
   }
 }

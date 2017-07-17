@@ -1,6 +1,6 @@
 {
   "name": "@theme-tools/plugin-js-concat-babel",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "JS Concat and Babel plugin for Theme Core",
   "main": "js-concat-babel.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@theme-tools/core": "^0.4.0",
+    "@theme-tools/core": "^0.4.1",
     "cached": "^4.3.0",
     "del": "^2.2.2",
     "gulp": "gulpjs/gulp#4.0",
