@@ -3,6 +3,7 @@
 const webpack = require('webpack');
 const core = require('@theme-tools/core');
 const defaultConfig = require('./config.default');
+const debug = require('debug')('@theme-tools/plugin-webpack');
 
 module.exports = (userConfig) => {
   const config = core.utils.merge({}, defaultConfig, userConfig);
@@ -13,6 +14,7 @@ module.exports = (userConfig) => {
 
   function compile(done) {
     if (process.env.NODE_ENV === 'production') {
+      debug('Production var is true. Compressing more.');
       // https://webpack.js.org/guides/production-build/#node-environment-variable
       config.plugins.push(
         new webpack.DefinePlugin({
@@ -27,6 +29,8 @@ module.exports = (userConfig) => {
         })
       );
     }
+    debug('Final config that is about to be passed to webpack:');
+    debug(config);
     webpack(config).run((err, stats) => {
       if (err) {
         console.error(err.stack || err);

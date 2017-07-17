@@ -3,6 +3,9 @@
   "version": "0.2.1",
   "description": "Webpack plugin for Theme Tools",
   "main": "webpack.js",
+  "bin": {
+    "webpack": "./node_modules/.bin/webpack"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +22,7 @@
   },
   "dependencies": {
     "@theme-tools/core": "^0.4.0",
+    "debug": "^2.6.8",
     "webpack": "^3.0.0"
   }
 }
