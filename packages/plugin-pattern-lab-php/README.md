@@ -87,6 +87,63 @@ Type: `Array<String>` Default: `[]`
 
 Extra paths to watch that would trigger a compile.
 
+### `twigNamespaces`
+
+Type: `Object` Default: `{}`
+
+Allows auto-discovery of Twig files. Requires [Pattern Lab plugin `plugin-twig-namespaces`](https://github.com/EvanLovely/plugin-twig-namespaces). Can also work with Drupal, which requires [Component Libraries Drupal module](https://www.drupal.org/project/components). Here's a typical full config:
+
+```js
+const config = {
+  configFile: 'pattern-lab/config/config.yml',
+  twigNamespaces: {
+    drupalThemeFile: './theme.info.yml', // optional
+    sets: [
+      {
+        namespace: 'atoms',
+        paths: ['pattern-lab/source/_patterns/01-atoms'],
+      }, {
+        namespace: 'molecules',
+        paths: ['pattern-lab/source/_patterns/02-molecules'],
+      }, {
+        namespace: 'organisms',
+        paths: ['pattern-lab/source/_patterns/03-organisms'],
+      }, {
+        namespace: 'templates',
+        paths: ['pattern-lab/source/_patterns/04-templates'],
+      }, {
+        namespace: 'pages',
+        paths: ['pattern-lab/source/_patterns/05-pages'],
+      },
+    ],
+  },
+};
+```
+
+For each `set`, it will find all Twig files nested at any depth under each item in `paths`, then set the `namespace` to look in there. Or more specifically, it will write the yaml config needed in Pattern Lab config for the `plugin-twig-namespaces` plugin to know of those Twig Namespaces, and if `drupalThemeFile` is set it will write the config needed for the Drupal module Component Libraries to know where to look for the files.
+
+#### Why this helps
+
+Given this basic file structure:
+
+- atoms/
+  - 01-buttons/
+    - button.twig
+
+To include the button, before you would have to write:
+
+```twig
+{% include '@atoms/01-buttons/button.twig' %}
+```
+
+And after using this, you could write:
+
+```twig
+{% include '@atoms/button.twig' %}
+```
+
+This will run before `compile()` each time, is very fast, and will result in your Pattern Lab config file and Drupal theme info file being altered, so commit those.
+
 ## Theme Core Events
 
 This is only info for other Theme Core plugin developers.
