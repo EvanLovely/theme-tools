@@ -1,7 +1,7 @@
 {
   "name": "common",
   "description": "common theme",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "private": true,
   "scripts": {
     "start": "gulp",
@@ -11,7 +11,7 @@
   "dependencies": {
     "@theme-tools/plugin-browser-sync": "^0.4.3",
     "@theme-tools/plugin-js-concat-babel": "^0.4.3",
-    "@theme-tools/plugin-pattern-lab-php": "^0.4.3",
+    "@theme-tools/plugin-pattern-lab-php": "^0.5.0",
     "@theme-tools/plugin-sass": "^0.4.4",
     "babel-preset-es2015": "^6.24.1",
     "gulp": "gulpjs/gulp#4.0"
