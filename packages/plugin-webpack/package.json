@@ -20,9 +20,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "peerDependencies": {
+    "webpack": "^3.0.0"
+  },
   "dependencies": {
     "@theme-tools/core": "^0.4.1",
-    "debug": "^2.6.8",
-    "webpack": "^3.0.0"
+    "debug": "^2.6.8"
   }
 }

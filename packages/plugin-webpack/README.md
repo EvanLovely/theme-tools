@@ -1,4 +1,4 @@
-# Jekyll Plugin for Theme Tools
+# Webpack Plugin for Theme Tools
 
 > Theme core plugins let you easily pass in configuration and get a set of Gulp-ready task functions back that have sensible defaults and work well together.
 
@@ -7,16 +7,12 @@
 ## Install
 
 ```bash
-npm install @theme-tools/plugin-webpack --save
+npm install @theme-tools/plugin-webpack webpack --save
 ```
 
 ## Configure
 
-The config that is passed in is merged with [`config.default.js`](config.default.js).
-
-```bash
-cp node_modules/@theme-tools/plugin-webpack/config.default.js config.webpack.js
-```
+Create a `webpack.config.js` [config file](https://webpack.js.org/configuration/).
 
 ## Setup
 
@@ -24,9 +20,7 @@ Add this to your `gulpfile.js`:
 
 ```js
 const gulp = require('gulp');
-const config = {};
-config.webpack = require('./config.webpack.js');
-const webpackTasks = require('@theme-tools/plugin-webpack')(config.webpack);
+const webpackTasks = require('@theme-tools/plugin-webpack')(require('webpack.config.js'));
 
 gulp.task('webpack', webpack.compile);
 gulp.task('watch:webpack', webpack.watch);

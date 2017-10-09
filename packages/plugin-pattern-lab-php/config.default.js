@@ -9,6 +9,7 @@ module.exports = {
     'jpg',
     'jpeg',
     'png',
+    'php',
   ],
   extraWatches: [],
 };

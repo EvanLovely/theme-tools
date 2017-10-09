@@ -3,6 +3,7 @@
 const gulp = require('gulp');
 const glob = require('glob');
 const core = require('@theme-tools/core');
+const debug = require('debug')('@theme-tools/plugin-pattern-lab-php');
 const path = require('path');
 const yaml = require('js-yaml');
 const fs = require('fs');
@@ -17,7 +18,7 @@ module.exports = (userConfig) => {
   const plRoot = path.join(config.configFile, '../..');
   const plSource = path.join(plRoot, plConfig.sourceDir);
   // const plPublic = path.join(plRoot, plConfig.publicDir);
-  const consolePath = path.join(plRoot, 'core/console');
+  const consolePath = config.consolePath ? config.consolePath : path.join(plRoot, 'core/console');
 
   // BEGIN: Compile
   function plBuild(done, errorShouldExit) {
@@ -114,7 +115,9 @@ module.exports = (userConfig) => {
     const src = config.extraWatches
       ? [].concat(plGlob, config.extraWatches)
       : plGlob;
-    gulp.watch(src, compileWithNoExit);
+    gulp.watch(src, compileWithNoExit).on('all', (event, changedPath) => {
+      debug(`Watch saw a "${event}" at: ${changedPath}`);
+    });
   }
   watch.description = 'Watch and rebuild Pattern Lab';
   watch.displayName = 'pattern-lab:watch';
