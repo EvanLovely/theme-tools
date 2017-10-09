@@ -3,9 +3,6 @@
   "version": "0.2.3",
   "description": "Webpack plugin for Theme Tools",
   "main": "webpack.js",
-  "bin": {
-    "webpack": "./node_modules/.bin/webpack"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
