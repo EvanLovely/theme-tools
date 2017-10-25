@@ -208,6 +208,12 @@ Type: `Array<String>` Default: `[ 'file', 'group', 'line>' ]`
 
 Passed to [SassDoc's `sort`](http://sassdoc.com/extra-tools/#sort-sort).
 
+### `functions`
+
+Type: `Object` Default: `{}`
+
+Add your own [custom Sass functions](https://www.npmjs.com/package/node-sass#functions--v300---experimental) by passing in an object of functions according to those docs.
+
 ## Setup Details
 
 ### Setting up Stylelint

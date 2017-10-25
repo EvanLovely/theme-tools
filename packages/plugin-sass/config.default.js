@@ -38,4 +38,6 @@ module.exports = {
       'line>',
     ],
   },
+  // https://www.npmjs.com/package/node-sass#functions--v300---experimental
+  functions: {},
 };

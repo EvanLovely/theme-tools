@@ -47,6 +47,7 @@ module.exports = (userConfig) => {
           outputStyle: config.outputStyle,
           sourceComments: config.sourceComments,
           includePaths: config.includePaths,
+          functions: config.functions,
         }).on('error', sass.logError))
         .pipe(postcss(
           [
