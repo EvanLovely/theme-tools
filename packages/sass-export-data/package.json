@@ -1,6 +1,6 @@
 {
   "name": "@theme-tools/sass-export-data",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Export Sass as JSON data",
   "main": "sass-export-data.js",
   "style": "export-data.scss",
