@@ -214,6 +214,16 @@ Type: `Object` Default: `{}`
 
 Add your own [custom Sass functions](https://www.npmjs.com/package/node-sass#functions--v300---experimental) by passing in an object of functions according to those docs.
 
+### `exportData`
+
+Type: `Object`
+
+Uses [`@theme-tools/sass-export-data`](https://github.com/theme-tools/theme-tools/tree/master/packages/sass-export-data) to export Sass Maps and other vars as JSON. All options in this variable are passed directly to that module, please see it for docs & details.
+
+#### `exportData.enabled`
+
+Type: `Boolean` Default: `false`
+
 ## Setup Details
 
 ### Setting up Stylelint

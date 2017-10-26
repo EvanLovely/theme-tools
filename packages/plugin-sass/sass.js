@@ -17,6 +17,7 @@ const join = require('path').join;
 const del = require('del');
 const debug = require('debug')('@theme-tools/plugin-sass');
 const core = require('@theme-tools/core');
+const sassExportData = require('@theme-tools/sass-export-data');
 const defaultConfig = require('./config.default');
 
 module.exports = (userConfig) => {
@@ -25,6 +26,10 @@ module.exports = (userConfig) => {
   debug(config);
   debug('End Config');
   const tasks = {};
+
+  if (config.exportData.enabled) {
+    Object.assign(config.functions, sassExportData(config.exportData));
+  }
 
   function cssCompile(done, errorShouldExit) {
     debug('Compile triggered');

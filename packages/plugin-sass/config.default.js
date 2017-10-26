@@ -40,4 +40,9 @@ module.exports = {
   },
   // https://www.npmjs.com/package/node-sass#functions--v300---experimental
   functions: {},
+  exportData: {
+    enabled: false,
+    path: '',
+    name: '',
+  },
 };
