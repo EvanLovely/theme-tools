@@ -10,7 +10,7 @@
   ],
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "license": "MIT",
-  "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/plugin-icon-font",
+  "repository": "https://github.com/basaltinc/theme-tools/tree/master/packages/plugin-icon-font",
   "publishConfig": {
     "access": "public"
   },

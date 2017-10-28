@@ -218,7 +218,7 @@ Add your own [custom Sass functions](https://www.npmjs.com/package/node-sass#fun
 
 Type: `Object`
 
-Uses [`@theme-tools/sass-export-data`](https://github.com/theme-tools/theme-tools/tree/master/packages/sass-export-data) to export Sass Maps and other vars as JSON. All options in this variable are passed directly to that module, please see it for docs & details.
+Uses [`@theme-tools/sass-export-data`](https://github.com/basaltinc/theme-tools/tree/master/packages/sass-export-data) to export Sass Maps and other vars as JSON. All options in this variable are passed directly to that module, please see it for docs & details.
 
 #### `exportData.enabled`
 

@@ -30,6 +30,6 @@
   "scripts": {
     "test": "mocha"
   },
-  "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/generator-theme",
+  "repository": "https://github.com/basaltinc/theme-tools/tree/master/packages/generator-theme",
   "license": "MIT"
 }

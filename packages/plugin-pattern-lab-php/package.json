@@ -13,7 +13,7 @@
   ],
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "license": "MIT",
-  "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/plugin-pattern-lab-php",
+  "repository": "https://github.com/basaltinc/theme-tools/tree/master/packages/plugin-pattern-lab-php",
   "publishConfig": {
     "access": "public"
   },

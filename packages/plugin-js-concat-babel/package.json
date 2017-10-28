@@ -10,7 +10,7 @@
     "theme-tools",
     "theme-tools-plugin"
   ],
-  "repository": "https://github.com/theme-tools/theme-tools/tree/master/packages/plugin-js-concat-babel",
+  "repository": "https://github.com/basaltinc/theme-tools/tree/master/packages/plugin-js-concat-babel",
   "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
   "maintainers": [],
   "contributors": [],
