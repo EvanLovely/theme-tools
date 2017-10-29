@@ -49,19 +49,34 @@ module.exports = (userConfig) => {
     const filename = path.join(config.path, file.getValue());
     const output = getValue(value);
 
-    if (fs.existsSync(filename)) {
-      const oldFileString = fs.readFileSync(filename);
-      try {
-        const oldFile = JSON.parse(oldFileString);
-        const diff = jsondiff.diff(oldFile, output);
-        if (!diff) {
+    // Write to disk. Fat-arrow because we simply want the parent scope vars
+    const write = () => {
+      fs.writeFile(filename, JSON.stringify(output, null, '  '), (writeerr) => {
+        if (writeerr) throw writeerr;
+        // console.log(`${filename} saved.`);
+      });
+    };
+
+    // It is recommended to fs.readFile() and handle error if not exists instead of fs.exists
+    fs.readFile(filename, 'utf8', (readerr, existingdata) => {
+      // If the file does not exist just write file
+      if (readerr && readerr.code === 'ENOENT') {
+        write();
+      }
+      // If there already exists data in the target file
+      if (existingdata) {
+        // Convert existing string to object, and then compare
+        const existingObject = JSON.parse(existingdata);
+        // If there is no difference, then simply return and do not write file
+        if (!jsondiff.diff(existingObject, output)) {
           return value;
         }
-      } catch (error) {} // eslint-disable-line no-empty
-    }
+        // Otherwise write out the new, unique-values file
+        write();
+      }
+      return value;
+    });
 
-    // console.log('Writing: ', path.basename(filename));
-    fs.writeFileSync(filename, JSON.stringify(output, null, '  '));
     return value;
   }
 
