@@ -13,7 +13,7 @@ npm install --save @theme-tools/sass-export-data
 ```js
 const config = {
   name: 'export_data', // Name of Sass function
-  path: 'path/to/export/folder/' // Folder where to place JSON files
+  path: 'path/to/export/folder/', // Folder where to place JSON files
 };
 const sassExportData = require('@theme-tools/sass-export-data')(config);
 ```
@@ -30,10 +30,10 @@ In your sass declare this mixin to make it easier:
 /// @param $var - What to turn into JSON
 /// @example scss
 ///   @include export-data-to-lib('filename.json', $sass-map);
-@mixin export-data($filename, $var) {
+@mixin export-data($filename, $var, $options: ()) {
   // The `export_data` function is a custom function added to Sass.
   // The `$data` var is weird, but needed.
-  $data: export_data($filename, $var);
+  $data: export_data($filename, $var, $options);
 };
 ```
 
@@ -52,8 +52,27 @@ This will create the file `example.json` in `path/to/export/folder/` with:
 
 ```json
 {
-  "a": "Apple",
-  "b": "Beer"
+  "sass-export-data": {
+    "a": "Apple",
+    "b": "Beer"
+  }
+}
+```
+
+To change the `root` key in the output JSON, send over a third argument as a SassMap:
+
+```scss
+@include export-data('example.json', $x, (root: 'myNewRoot'));
+```
+
+Resulting in:
+
+```json
+{
+  "myNewRoot": {
+    "a": "Apple",
+    "b": "Beer"
+  }
 }
 ```
 

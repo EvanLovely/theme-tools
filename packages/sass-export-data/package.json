@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@theme-tools/core": "^1.0.0",
-    "jsondiffpatch": "^0.2.5"
+    "jsondiffpatch": "^0.2.5",
+    "sass-extract": "^1.0.1"
   }
 }

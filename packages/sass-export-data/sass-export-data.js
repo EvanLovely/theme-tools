@@ -5,49 +5,28 @@ const defaultConfig = require('./config.default');
 const fs = require('fs');
 const path = require('path');
 const jsondiff = require('jsondiffpatch');
+const { createStructuredValue } = require('sass-extract/lib/struct');
 
 module.exports = (userConfig) => {
   const config = core.utils.merge({}, defaultConfig, userConfig);
   const args = '($file, $value, $options:())';
 
-  function getValue(a) {
-    let value;
-    let i;
-    switch (a.constructor.name) {
-      case 'SassList':
-        value = [];
-        for (i = 0; i < a.getLength(); i++) {
-          value.push(getValue(a.getValue(i)));
-        }
-        break;
-      case 'SassMap':
-        value = {};
-        for (i = 0; i < a.getLength(); i++) {
-          value[a.getKey(i).getValue()] = getValue(a.getValue(i));
-        }
-        break;
-      case 'SassColor':
-        if (a.getA() === 1) {
-          value = `rgb(${a.getR()}, ${a.getG()}, ${a.getB()})`;
-        } else {
-          value = `rgba(${a.getR()}, ${a.getG()}, ${a.getB()}, ${a.getA()})`;
-        }
-        break;
-      case 'SassNumber':
-        value = a.getValue();
-        if (a.getUnit()) {
-          value += a.getUnit();
-        }
-        break;
-      default:
-        value = a.getValue();
-    }
-    return value;
-  }
-
-  function exportData(file, value) {
+  // Format sass data structures to json
+  // options is an empty SassList by default
+  function exportData(file, value, options) {
     const filename = path.join(config.path, file.getValue());
-    const output = getValue(value);
+
+    // Set a root key, either default or provided by options SassMap
+    let root = 'sass-export-data';
+    if (options.getLength() > 0) {
+      // Set root key with parsed Sass data, using ES6 destructuring against sass-extract format
+      const { value: { root: tempRoot } } = createStructuredValue(options);
+      if (tempRoot) {
+        // More destructuring against sass-extract format
+        ({ value: root } = tempRoot);
+      }
+    }
+    const output = { [root]: createStructuredValue(value) };
 
     // Write to disk. Fat-arrow because we simply want the parent scope vars
     const write = () => {
