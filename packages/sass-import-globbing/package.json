@@ -1,0 +1,23 @@
+{
+  "name": "@theme-tools/sass-import-globbing",
+  "version": "0.1.0",
+  "description": "Sass @import globbing",
+  "main": "sass-import-globbing.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "theme-tools-plugin",
+    "theme-tools"
+  ],
+  "author": "EvanLovely <evanlovely@gmail.com> (http://evanlovely.com)",
+  "license": "MIT",
+  "repository": "https://github.com/basaltinc/theme-tools/tree/master/packages/sass-import-globbinga",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "debug": "^3.1.0",
+    "glob": "^7.1.2"
+  }
+}
