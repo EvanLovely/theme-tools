@@ -31,7 +31,6 @@
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.4.0",
     "gulp-sass": "^3.1.0",
-    "gulp-sass-glob": "tomgrooffer/gulp-sass-glob#99d06af",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-stylelint": "^3.9.0",
     "sassdoc": "^2.2.2",
