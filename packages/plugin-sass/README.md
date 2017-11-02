@@ -6,7 +6,10 @@
 
 - Scss compiling via `gulp-sass` & libsass
 - Sourcemaps
-- [Autoprefixer](https://github.com/postcss/autoprefixer#readme)
+- Handy PostCSS plugins:
+    - [Autoprefixer](https://github.com/postcss/autoprefixer#readme)
+    - [Discard Duplicates](https://www.npmjs.com/package/postcss-discard-duplicates) to remove duplicated rules
+    - [Flexbox bug fixes](https://github.com/luisrudge/postcss-flexbugs-fixes)
 - Documentation generation via [SassDoc](http://sassdoc.com/)
 - Linting via [Stylelint](http://stylelint.io)
 - Native OS Notifications for Errors
