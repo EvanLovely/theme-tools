@@ -16,6 +16,8 @@ const path = require('path');
 const del = require('del');
 const debug = require('debug')('@theme-tools/plugin-sass');
 const core = require('@theme-tools/core');
+const postcssDiscardDuplicates = require('postcss-discard-duplicates');
+const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
 const sassExportData = require('@theme-tools/sass-export-data');
 const sassImportGlobbing = require('@theme-tools/sass-import-globbing');
 const defaultConfig = require('./config.default');
@@ -61,9 +63,11 @@ module.exports = (userConfig) => {
         }).on('error', sass.logError))
         .pipe(postcss(
           [
+            postcssFlexbugsFixes(),
             autoprefixer({
               browsers: config.autoPrefixerBrowsers,
             }),
+            postcssDiscardDuplicates(),
           ]
         ))
         .pipe(sourcemaps.write((config.sourceMapEmbed) ? null : './'))
