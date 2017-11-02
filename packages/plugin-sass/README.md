@@ -10,6 +10,7 @@
 - Documentation generation via [SassDoc](http://sassdoc.com/)
 - Linting via [Stylelint](http://stylelint.io)
 - Native OS Notifications for Errors
+- Better Sass @import Globbing that allows nested globbed imports
 
 # Getting Started
 
@@ -213,6 +214,12 @@ Passed to [SassDoc's `sort`](http://sassdoc.com/extra-tools/#sort-sort).
 Type: `Object` Default: `{}`
 
 Add your own [custom Sass functions](https://www.npmjs.com/package/node-sass#functions--v300---experimental) by passing in an object of functions according to those docs.
+
+### `importers`
+
+Type: `Array` Default: `[]`
+
+Add your own [custom Sass importer](https://www.npmjs.com/package/node-sass#importer--v200---experimental) by passing in an array of functions according to those docs.
 
 ### `exportData`
 

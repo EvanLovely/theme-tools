@@ -1,7 +1,6 @@
 'use strict';
 
 const gulp = require('gulp');
-const sassGlob = require('gulp-sass-glob');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const stylelint = require('gulp-stylelint');
@@ -13,15 +12,19 @@ const notify = require('gulp-notify');
 const flatten = require('gulp-flatten');
 const gulpif = require('gulp-if');
 const sassdoc = require('sassdoc');
-const join = require('path').join;
+const path = require('path');
 const del = require('del');
 const debug = require('debug')('@theme-tools/plugin-sass');
 const core = require('@theme-tools/core');
 const sassExportData = require('@theme-tools/sass-export-data');
+const sassImportGlobbing = require('@theme-tools/sass-import-globbing');
 const defaultConfig = require('./config.default');
+
+const join = path.join;
 
 module.exports = (userConfig) => {
   const config = core.utils.merge({}, defaultConfig, userConfig);
+  const buildBase = core.settings.get().buildBase;
   debug('Begin Config post merge');
   debug(config);
   debug('End Config');
@@ -31,10 +34,11 @@ module.exports = (userConfig) => {
     Object.assign(config.functions, sassExportData(config.exportData));
   }
 
+  config.importers.push(sassImportGlobbing);
+
   function cssCompile(done, errorShouldExit) {
     debug('Compile triggered');
     gulp.src(config.src)
-        .pipe(sassGlob())
         .pipe(plumber({
           errorHandler(error) {
             notify.onError({
@@ -53,6 +57,7 @@ module.exports = (userConfig) => {
           sourceComments: config.sourceComments,
           includePaths: config.includePaths,
           functions: config.functions,
+          importer: config.importers,
         }).on('error', sass.logError))
         .pipe(postcss(
           [
@@ -63,7 +68,7 @@ module.exports = (userConfig) => {
         ))
         .pipe(sourcemaps.write((config.sourceMapEmbed) ? null : './'))
         .pipe(gulpif(config.flattenDestOutput, flatten()))
-        .pipe(gulp.dest(config.dest))
+        .pipe(gulp.dest(join(buildBase, config.dest)))
         .on('end', () => {
           core.events.emit('reload', join(config.dest, '**/*.css'));
           done();

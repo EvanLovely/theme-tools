@@ -40,6 +40,8 @@ module.exports = {
   },
   // https://www.npmjs.com/package/node-sass#functions--v300---experimental
   functions: {},
+  // https://www.npmjs.com/package/node-sass#importer--v200---experimental
+  importers: [],
   exportData: {
     enabled: false,
     path: '',

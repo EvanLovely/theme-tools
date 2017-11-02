@@ -19,6 +19,7 @@
   "dependencies": {
     "@theme-tools/core": "^1.0.0",
     "@theme-tools/sass-export-data": "^1.0.1",
+    "@theme-tools/sass-import-globbing": "^1.0.0",
     "autoprefixer": "^6.7.7",
     "debug": "^2.6.8",
     "del": "^2.2.2",
