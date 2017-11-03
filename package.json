@@ -7,6 +7,7 @@
     "lint": "eslint ./",
     "fix": "eslint --fix ./",
     "mocha": "mocha packages/*/tests",
+    "lerna": "lerna",
     "start": "nodemon --ignore node_modules -w packages/ --exec 'npm test'",
     "test": "npm run mocha && npm run lint",
     "precommit": "npm test",
