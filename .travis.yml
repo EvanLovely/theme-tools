@@ -1,3 +1,9 @@
 language: node_js
 node_js:
-- 6
+  - 6
+  - 8
+# Safelisting all branches prevents tags from being built as lerna tags a lot
+# https://docs.travis-ci.com/user/customizing-the-build/#Safelisting-or-blocklisting-branches
+branches:
+  only:
+    - /.*/ # all branches
