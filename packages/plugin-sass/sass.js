@@ -26,7 +26,6 @@ const join = path.join;
 
 module.exports = (userConfig) => {
   const config = core.utils.merge({}, defaultConfig, userConfig);
-  const buildBase = core.settings.get().buildBase;
   debug('Begin Config post merge');
   debug(config);
   debug('End Config');
@@ -72,7 +71,7 @@ module.exports = (userConfig) => {
         ))
         .pipe(sourcemaps.write((config.sourceMapEmbed) ? null : './'))
         .pipe(gulpif(config.flattenDestOutput, flatten()))
-        .pipe(gulp.dest(join(buildBase, config.dest)))
+        .pipe(gulp.dest(config.dest))
         .on('end', () => {
           core.events.emit('reload', join(config.dest, '**/*.css'));
           done();
