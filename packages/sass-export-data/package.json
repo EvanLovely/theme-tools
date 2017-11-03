@@ -5,7 +5,8 @@
   "main": "sass-export-data.js",
   "style": "export-data.scss",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:compile": "rm -rf tests/basics/dest/ && mkdir tests/basics/dest/ && node-sass --functions tests/basics/function.js tests/basics/scss/style.scss tests/basics/dest/style.css",
+    "test": "mocha tests"
   },
   "keywords": [
     "theme-tools-plugin",
@@ -20,5 +21,11 @@
   "dependencies": {
     "@theme-tools/core": "^1.0.0",
     "jsondiffpatch": "^0.2.5"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-fs": "^1.0.0",
+    "mocha": "^4.0.1",
+    "node-sass": "^4.5.3"
   }
 }
