@@ -1,6 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
+const gutil = require('gulp-util');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const stylelint = require('gulp-stylelint');
@@ -100,6 +101,7 @@ module.exports = (userConfig) => {
         .pipe(gulpif(config.flattenDestOutput, flatten()))
         .pipe(gulp.dest(config.dest))
         .on('end', () => {
+          gutil.log('Sass: compiled');
           core.events.emit('reload', join(config.dest, '**/*.css'));
           done();
         });
@@ -183,6 +185,7 @@ module.exports = (userConfig) => {
     const src = config.extraWatches
         ? [].concat(config.src, config.extraWatches)
         : config.src;
+    debug('watching these sass files: ', src);
     return gulp.watch(src, gulp.parallel(watchTasks));
   }
 
