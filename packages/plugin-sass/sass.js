@@ -18,6 +18,8 @@ const debug = require('debug')('@theme-tools/plugin-sass');
 const core = require('@theme-tools/core');
 const postcssDiscardDuplicates = require('postcss-discard-duplicates');
 const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
+const cssnano = require('cssnano');
+const postcssUrl = require('postcss-url');
 const sassExportData = require('@theme-tools/sass-export-data');
 const sassImportGlobbing = require('@theme-tools/sass-import-globbing');
 const defaultConfig = require('./config.default');
@@ -36,6 +38,39 @@ module.exports = (userConfig) => {
   }
 
   config.importers.push(sassImportGlobbing);
+
+  const postCssPlugins = [
+    postcssFlexbugsFixes(),
+    autoprefixer({
+      browsers: config.autoPrefixerBrowsers,
+    }),
+    postcssDiscardDuplicates(),
+  ];
+
+  if (config.urlAssets.enabled) {
+    postCssPlugins.push(postcssUrl({
+      url: 'inline',
+      encodeType: 'base64',
+      maxSize: config.urlAssets.maxInlineSize, // kb
+      fallback: 'copy',
+      filter: config.urlAssets.filter,
+      optimizeSvgEncode: true,
+      basePath: config.urlAssets.basePath,
+      assetsPath: join(config.dest, config.urlAssets.destSubDir),
+    }));
+    postCssPlugins.push(postcssUrl({
+      filter: config.urlAssets.filter,
+      url: (asset) => {
+        // don't change inline data urls
+        if (asset.url.startsWith('data')) return asset.url;
+        return path.relative(config.dest, asset.url);
+      },
+    }));
+  }
+
+  if (process.env.NODE_ENV === 'production') {
+    postCssPlugins.push(cssnano);
+  }
 
   function cssCompile(done, errorShouldExit) {
     debug('Compile triggered');
@@ -60,15 +95,7 @@ module.exports = (userConfig) => {
           functions: config.functions,
           importer: config.importers,
         }).on('error', sass.logError))
-        .pipe(postcss(
-          [
-            postcssFlexbugsFixes(),
-            autoprefixer({
-              browsers: config.autoPrefixerBrowsers,
-            }),
-            postcssDiscardDuplicates(),
-          ]
-        ))
+        .pipe(postcss(postCssPlugins))
         .pipe(sourcemaps.write((config.sourceMapEmbed) ? null : './'))
         .pipe(gulpif(config.flattenDestOutput, flatten()))
         .pipe(gulp.dest(config.dest))

@@ -38,13 +38,21 @@ module.exports = {
       'line>',
     ],
   },
-  // https://www.npmjs.com/package/node-sass#functions--v300---experimental
-  functions: {},
-  // https://www.npmjs.com/package/node-sass#importer--v200---experimental
-  importers: [],
+  // https://www.npmjs.com/package/postcss-url
+  urlAssets: {
+    enabled: false,
+    basePath: [],
+    maxInlineSize: 14,
+    filter: url => url.pathname !== '', // Just a placeholder that lets all files through
+    destSubDir: '',
+  },
   exportData: {
     enabled: false,
     path: '',
     name: '',
   },
+  // https://www.npmjs.com/package/node-sass#importer--v200---experimental
+  importers: [],
+  // https://www.npmjs.com/package/node-sass#functions--v300---experimental
+  functions: {},
 };

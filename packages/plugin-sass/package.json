@@ -21,6 +21,7 @@
     "@theme-tools/sass-export-data": "^1.0.1",
     "@theme-tools/sass-import-globbing": "^1.0.0",
     "autoprefixer": "^6.7.7",
+    "cssnano": "^3.10.0",
     "debug": "^2.6.8",
     "del": "^2.2.2",
     "gulp": "gulpjs/gulp#4.0",
@@ -35,6 +36,7 @@
     "gulp-stylelint": "^3.9.0",
     "postcss-discard-duplicates": "^2.1.0",
     "postcss-flexbugs-fixes": "^3.2.0",
+    "postcss-url": "^7.1.2",
     "sassdoc": "^2.2.2",
     "stylelint-scss": "^1.4.4"
   }

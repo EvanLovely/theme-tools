@@ -8,8 +8,10 @@
 - Sourcemaps
 - Handy PostCSS plugins:
     - [Autoprefixer](https://github.com/postcss/autoprefixer#readme)
+    - [URL](https://www.npmjs.com/package/postcss-url) to inline or copy assets
     - [Discard Duplicates](https://www.npmjs.com/package/postcss-discard-duplicates) to remove duplicated rules
     - [Flexbox bug fixes](https://github.com/luisrudge/postcss-flexbugs-fixes)
+    - [CSS Nano](https://www.npmjs.com/package/cssnano) for minification if `NODE_ENV=production`
 - Documentation generation via [SassDoc](http://sassdoc.com/)
 - Linting via [Stylelint](http://stylelint.io)
 - Native OS Notifications for Errors
@@ -212,6 +214,52 @@ Type: `Array<String>` Default: `[ 'file', 'group', 'line>' ]`
 
 Passed to [SassDoc's `sort`](http://sassdoc.com/extra-tools/#sort-sort).
 
+### `urlAssets`
+
+Type: `Object`
+
+Uses [`postcss-url`](https://www.npmjs.com/package/postcss-url) to take assets found in the `url()`s of the sass and will inline or copy them to the destination directory (`dest` option) and rewrite what's found in the `url()`.
+
+### `urlAssets.enabled`
+
+Type: `Boolean` Default: `false`
+
+Turn this behavior on or off.
+
+### `urlAssets.basePath`
+
+Type: `Array<String>` Default: `[]`
+
+Path or array of absolute paths to search for assets. Passes to the [`basePath` option](https://www.npmjs.com/package/postcss-url#basepath).
+
+### `urlAssets.maxInlineSize`
+
+Type: `Number` Default: `14`
+
+Max filesize, in kilobytes, to inline via Base64. If bigger, it copies the file. Passes to [`maxSize` option](https://www.npmjs.com/package/postcss-url#maxsize)
+
+### `urlAssets.filter`
+
+Type: `Regex`, `String`, or `Function` Default: All files
+
+A regular expression e.g. `/\.svg$/`, a [minimatch string](https://github.com/isaacs/minimatch) e.g. `'**/*.svg'` or a custom filter function to determine whether a file should be inlined. Example: `url => !url.pathname.startsWith('icons')`.
+
+### `urlAssets.destSubDir`
+
+Type: `String` Default: `''`
+
+If used, assets are placed in this directory inside the `dest` directory where CSS is compiled to.
+
+### `exportData`
+
+Type: `Object`
+
+Uses [`@theme-tools/sass-export-data`](https://github.com/basaltinc/theme-tools/tree/master/packages/sass-export-data) to export Sass Maps and other vars as JSON. All options in this variable are passed directly to that module, please see it for docs & details.
+
+#### `exportData.enabled`
+
+Type: `Boolean` Default: `false`
+
 ### `functions`
 
 Type: `Object` Default: `{}`
@@ -224,15 +272,7 @@ Type: `Array` Default: `[]`
 
 Add your own [custom Sass importer](https://www.npmjs.com/package/node-sass#importer--v200---experimental) by passing in an array of functions according to those docs.
 
-### `exportData`
-
-Type: `Object`
-
-Uses [`@theme-tools/sass-export-data`](https://github.com/basaltinc/theme-tools/tree/master/packages/sass-export-data) to export Sass Maps and other vars as JSON. All options in this variable are passed directly to that module, please see it for docs & details.
-
-#### `exportData.enabled`
-
-Type: `Boolean` Default: `false`
+---
 
 ## Setup Details
 
