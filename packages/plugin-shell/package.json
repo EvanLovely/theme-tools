@@ -1,6 +1,6 @@
 {
   "name": "@theme-tools/plugin-shell",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shell plugin for Theme Tools",
   "main": "shell.js",
   "scripts": {
