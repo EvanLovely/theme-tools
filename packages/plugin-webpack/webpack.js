@@ -1,6 +1,6 @@
 'use strict';
 
-const webpack = require('webpack');
+const webpack = require('webpack'); // eslint-disable-line import/no-unresolved
 const webpackMildCompile = require('webpack-mild-compile');
 const core = require('@theme-tools/core');
 const defaultConfig = require('./config.default');
