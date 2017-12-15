@@ -2,7 +2,7 @@
 
 const core = require('@theme-tools/core');
 const defaultConfig = require('./config.default');
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const jsondiff = require('jsondiffpatch');
 
@@ -51,9 +51,12 @@ module.exports = (userConfig) => {
 
     // Write to disk. Fat-arrow because we simply want the parent scope vars
     const write = () => {
-      fs.writeFile(filename, JSON.stringify(output, null, '  '), (writeerr) => {
-        if (writeerr) throw writeerr;
-        // console.log(`${filename} saved.`);
+      fs.ensureDir(path.dirname(filename), (err) => {
+        if (err) throw err;
+        fs.writeFile(filename, JSON.stringify(output, null, '  '), (writeerr) => {
+          if (writeerr) throw writeerr;
+          // console.log(`${filename} saved.`);
+        });
       });
     };
 
