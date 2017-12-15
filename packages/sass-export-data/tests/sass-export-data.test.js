@@ -31,7 +31,7 @@ describe('Sass Export Data', function () {
           JSON.parse(
             fs.readFileSync(
               join(__dirname, './basics/dest/', file),
-              'utf8',
+              'utf8'
             )
           ),
           JSON.parse(
