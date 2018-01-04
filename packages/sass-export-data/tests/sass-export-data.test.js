@@ -37,7 +37,7 @@ describe('Sass Export Data', function () {
           JSON.parse(
             fs.readFileSync(
               join(__dirname, './basics/expected/', file),
-              'utf8',
+              'utf8'
             )
           ),
           `JSON files do not match.\n\n${output}`
