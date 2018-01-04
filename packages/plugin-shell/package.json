@@ -18,6 +18,6 @@
   },
   "dependencies": {
     "@theme-tools/core": "^1.0.0",
-    "gulp": "gulpjs/gulp#4.0"
+    "gulp": "^4.0.0"
   }
 }

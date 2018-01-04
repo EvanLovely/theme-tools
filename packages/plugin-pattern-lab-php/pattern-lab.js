@@ -23,6 +23,7 @@ module.exports = (userConfig) => {
   // BEGIN: Compile
   function plBuild(done, errorShouldExit) {
     core.events.emit('pattern-lab:precompile');
+    // @todo add memory limit config option: `php -d memory_limit=4048M`
     core.utils.sh(`php ${consolePath} --generate`, errorShouldExit, (err) => {
       core.events.emit('reload');
       done(err);

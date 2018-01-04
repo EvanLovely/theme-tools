@@ -9,7 +9,7 @@ If you don't have a `package.json` file, run this to get one: `npm init`.
 Run this to install Gulp 4:
 
 ```bash
-npm install --save gulpjs/gulp#4.0
+npm install --save gulp@4
 ```
 
 Create a file called `gulpfile.js` with:

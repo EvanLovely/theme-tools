@@ -162,7 +162,7 @@ module.exports = class extends Generator {
     // npm dependencies
     const deps = [];
 
-    if (this.props.useGulp) deps.push('gulpjs/gulp#4.0');
+    if (this.props.useGulp) deps.push('gulp@4');
     if (this.props.css) deps.push(this.props.css);
     if (this.props.browserSync) deps.push('@theme-tools/plugin-browser-sync');
     if (this.props.usePatternLab) deps.push('@theme-tools/plugin-pattern-lab-php');

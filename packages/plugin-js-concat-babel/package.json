@@ -22,7 +22,7 @@
     "@theme-tools/core": "^1.0.0",
     "cached": "^4.3.0",
     "del": "^2.2.2",
-    "gulp": "gulpjs/gulp#4.0",
+    "gulp": "^4.0.0",
     "gulp-babel": "^6.1.2",
     "gulp-cached": "^1.1.1",
     "gulp-concat": "^2.6.1",

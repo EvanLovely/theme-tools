@@ -17,7 +17,7 @@
   "dependencies": {
     "@theme-tools/core": "^1.0.0",
     "del": "^2.2.2",
-    "gulp": "gulpjs/gulp#4.0",
+    "gulp": "^4.0.0",
     "gulp-iconfont": "^8.0.1",
     "lodash.template": "^4.4.0"
   }

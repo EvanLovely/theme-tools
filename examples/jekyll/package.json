@@ -13,6 +13,6 @@
   "dependencies": {
     "@theme-tools/plugin-browser-sync": "^1.0.0",
     "@theme-tools/plugin-jekyll": "^1.0.0",
-    "gulp": "gulpjs/gulp#4.0"
+    "gulp": "^4.0.0"
   }
 }
