@@ -1,6 +1,6 @@
 {
   "name": "@theme-tools/plugin-browser-sync",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Browser Sync plugin for Theme Core",
   "main": "browser-sync.js",
   "scripts": {

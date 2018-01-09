@@ -1,7 +1,7 @@
 {
   "name": "common",
   "description": "common theme",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "start": "gulp",
@@ -9,10 +9,10 @@
     "setup": "cd pattern-lab && composer install --no-interaction"
   },
   "dependencies": {
-    "@theme-tools/plugin-browser-sync": "^1.0.0",
-    "@theme-tools/plugin-js-concat-babel": "^1.0.0",
-    "@theme-tools/plugin-pattern-lab-php": "^1.0.0",
-    "@theme-tools/plugin-sass": "^1.3.3",
+    "@theme-tools/plugin-browser-sync": "^1.0.1",
+    "@theme-tools/plugin-js-concat-babel": "^1.1.0",
+    "@theme-tools/plugin-pattern-lab-php": "^1.1.0",
+    "@theme-tools/plugin-sass": "^1.4.0",
     "babel-preset-es2015": "^6.24.1",
     "gulp": "^4.0.0"
   }
