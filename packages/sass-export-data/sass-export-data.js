@@ -28,9 +28,9 @@ module.exports = (userConfig) => {
         break;
       case 'SassColor':
         if (a.getA() === 1) {
-          value = `rgb(${a.getR()}, ${a.getG()}, ${a.getB()})`;
+          value = `rgb(${Math.round(a.getR())}, ${Math.round(a.getG())}, ${Math.round(a.getB())})`;
         } else {
-          value = `rgba(${a.getR()}, ${a.getG()}, ${a.getB()}, ${a.getA()})`;
+          value = `rgba(${Math.round(a.getR())}, ${Math.round(a.getG())}, ${Math.round(a.getB())}, ${a.getA()})`;
         }
         break;
       case 'SassNumber':
