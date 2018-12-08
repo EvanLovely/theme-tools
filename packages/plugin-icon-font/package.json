@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "@theme-tools/core": "^1.0.0",
-    "del": "^2.2.2",
+    "del": "^3.0.0",
     "gulp": "^4.0.0",
-    "gulp-iconfont": "^8.0.1",
+    "gulp-iconfont": "^10.0.2",
     "lodash.template": "^4.4.0"
   }
 }
