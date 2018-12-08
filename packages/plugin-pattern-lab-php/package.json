@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@theme-tools/core": "^1.0.0",
-    "debug": "^3.1.0",
+    "debug": "^4.1.0",
     "glob": "^7.1.2",
     "gulp": "^4.0.0",
     "js-yaml": "^3.8.3"
