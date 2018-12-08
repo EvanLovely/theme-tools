@@ -20,13 +20,13 @@
   },
   "dependencies": {
     "@theme-tools/core": "^1.0.0",
-    "fs-extra": "^5.0.0",
-    "jsondiffpatch": "^0.2.5"
+    "fs-extra": "^7.0.1",
+    "jsondiffpatch": "^0.3.11"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "chai-fs": "^1.0.0",
-    "mocha": "^4.0.1",
+    "chai": "^4.2.0",
+    "chai-fs": "^2.0.0",
+    "mocha": "^5.2.0",
     "node-sass": "^4.5.3"
   }
 }

@@ -21,6 +21,6 @@
   "dependencies": {
     "@theme-tools/core": "^1.0.0",
     "browser-sync": "^2.18.8",
-    "debug": "^2.6.8"
+    "debug": "^4.1.0"
   }
 }

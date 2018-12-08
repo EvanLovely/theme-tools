@@ -1,5 +1,7 @@
 # Theme Tools by Basalt
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/basaltinc/theme-tools.svg)](https://greenkeeper.io/)
+
 > Flexible, un-opinionated tools for front end development.
 
 This is a monorepo of a lot of awesome stuff. Everything in `packages/` can be `npm install`-ed by itself - and each of those packages is focused on solving a single need in front end web development, like needing to work with CSS for example. As many know, there's so much more to a good setup than just compiling Scss to CSS: linting, docs, compressing, handling vendor prefixes, managing file assets CSS needs like font files & images - not to mention a watch task for each of those. And that's what Theme Tools plugins do: they solve a collection of challenges to effective tooling around a single need. These examples are just around `plugin-sass`; there's several others as well and they all can be combined in different ways depending on the needs of the specific project - use as many or as little as you'd like - even in your pre-existing setup.

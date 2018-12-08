@@ -1,0 +1,23 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "examples/common/package.json",
+        "examples/jekyll/package.json",
+        "package.json",
+        "packages/core/package.json",
+        "packages/generator-theme/package.json",
+        "packages/plugin-browser-sync/package.json",
+        "packages/plugin-icon-font/package.json",
+        "packages/plugin-jekyll/package.json",
+        "packages/plugin-js-concat-babel/package.json",
+        "packages/plugin-pattern-lab-php/package.json",
+        "packages/plugin-sass/package.json",
+        "packages/plugin-shell/package.json",
+        "packages/plugin-webpack/package.json",
+        "packages/sass-export-data/package.json",
+        "packages/sass-import-globbing/package.json"
+      ]
+    }
+  }
+}
