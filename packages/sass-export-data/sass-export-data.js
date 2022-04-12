@@ -15,18 +15,21 @@ module.exports = (userConfig) => {
     let i;
     switch (a.constructor.name) {
       case 'SassList':
+      case 'sass.types.List':
         value = [];
         for (i = 0; i < a.getLength(); i++) {
           value.push(getValue(a.getValue(i)));
         }
         break;
       case 'SassMap':
+      case 'sass.types.Map':
         value = {};
         for (i = 0; i < a.getLength(); i++) {
           value[a.getKey(i).getValue()] = getValue(a.getValue(i));
         }
         break;
       case 'SassColor':
+      case 'sass.types.Color':
         if (a.getA() === 1) {
           value = `rgb(${Math.round(a.getR())}, ${Math.round(a.getG())}, ${Math.round(a.getB())})`;
         } else {
@@ -34,6 +37,7 @@ module.exports = (userConfig) => {
         }
         break;
       case 'SassNumber':
+      case 'sass.types.Number':
         value = a.getValue();
         if (a.getUnit()) {
           value += a.getUnit();
